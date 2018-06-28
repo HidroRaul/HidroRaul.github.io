@@ -1,0 +1,61 @@
+@font-face{
+        font-family: Fira Sans;
+        src: url(fira-sans/FiraSansOT-Regular.otf) format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        }
+
+body{margin:0px;
+    }
+
+.caja{width: auto;
+     max-width:320px;
+     background-color: #ddd;
+     font-family:Fira Sans, Sans;
+     }
+     
+.cabecera{  height: 5rem;
+            width: 100%;
+            background-color: #bb482d;
+            border-radius: 0px;
+            color: #fff;
+            text-align: center;
+            }
+            
+header h4{margin-top:0px;
+         }
+
+.tabla{color:#ddd;
+       border:none;
+       background-color: #333;
+       border-radius: 0px;
+       }
+       
+.tabla th   {width:40%;
+            }
+
+.celda_izq{text-align: left;
+}
+
+.celda_cen{width: 100px;
+}
+
+.celda_der{
+}
+
+.entrada{border-radius:5px;
+         width:80px;
+}
+
+.salida{border-radius:5px;
+         width:78px;
+}
+
+.boton{border-radius:   5px;
+       font-family:Fira Sans, Sans;
+}
+
+footer{color:#bb482d;
+        text-align:right;
+        font-size:90%;
+        }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link link="" rel="stylesheet" href="estilo_HeHA.css" type="text/css">
+    <title>Pérdidas de carga según White-Colebrook</title>
+    <!--<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>-->
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript">
+      
+      $(function(){
+        var caudal, pmotriz, diamet, asperez, visc;
+        var tol=+1e-6;
+                
+        function calcularQ(pmotriz, diamet, aspereza, visc){
+          pmotriz=parseFloat($('#I').val()), diamet=parseFloat($('#D').val()), aspereza=parseFloat($('#ka').val()), visc=parseFloat($('#nu').val());
+          caudal=Math.PI*Math.pow(diamet,2)/4*Math.sqrt(2*9.80665*pmotriz*diamet)*(-2/Math.LN10*Math.log((aspereza/3.7/diamet)+(2.52*visc/diamet/Math.sqrt(2*9.80665*pmotriz*diamet))));
+          $('#Q').val(caudal.toFixed(4));
+          
+        };
+        
+        function calcularI(caudal, diamet, aspereza, visc){
+          caudal=parseFloat($('#Q').val()), diamet=parseFloat($('#D').val()), aspereza=parseFloat($('#ka').val()), visc=parseFloat($('#nu').val());
+          var pmotriz_a=0.001, pmotriz=pmotriz_a+2*tol;
+          while (Math.abs(pmotriz-pmotriz_a)>tol){
+            pmotriz_a=pmotriz;
+            pmotriz=Math.pow((4*caudal/Math.PI/Math.pow(diamet,2)/(-2/Math.LN10*Math.log(aspereza/3.7/diamet+2.52*visc/diamet/Math.sqrt(2*9.80665*pmotriz_a*diamet)))),2)/2/9.80665/diamet;
+          };
+          $('#I').val(pmotriz.toFixed(6));
+        
+        };
+        
+        function calcularD(caudal, pmotriz, aspereza, visc){
+          caudal=parseFloat($('#Q').val()), pmotriz=parseFloat($('#I').val()), aspereza=parseFloat($('#ka').val()), visc=parseFloat($('#nu').val());
+          var diamet_a=0.1, diamet=diamet_a+2*tol;
+          while (Math.abs(diamet-diamet_a)>tol){
+            diamet_a=diamet;
+            diamet=Math.pow((4*caudal/Math.PI/(-2/Math.LN10*Math.log(aspereza/3.7/diamet_a+2.52*visc/diamet_a/Math.sqrt(2*9.80665*pmotriz*diamet_a))))/Math.sqrt(2*9.80665*pmotriz),(2/5));
+          };
+          $('#D').val(diamet.toFixed(3));
+        
+        };
+        
+        calcularQ();
+        
+        $('#calQ').on('click',calcularQ);
+        $('#calI').on('click',calcularI);
+        $('#calD').on('click',calcularD);
+        
+      });  
+    </script>
+  </head>
+  <body>
+    <div class="caja">
+      <header class="cabecera">
+        <h4>Pérdidas de carga en tuberías<br>
+          F(Q, I ,D, k, ν)=0 según White-Colebrook</h4>
+        <h5>Unidades en el SI</h5>
+      </header>
+      <table class="tabla">
+        <tbody class="cuerpo_tabla">
+          <tr>
+            <td class="celda_izq">Caudal:</td>
+            <td class="celda_cen"><input class="entrada" id="Q" name="Caudal" value="0.025"
+
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="calQ">Calcular Q</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Pendiente motriz:</td>
+            <td class="celda_cen"><input class="entrada" id="I" name="Pendiente motriz"
+
+                value="0.002" type="number"></td>
+            <td class="celda_der"><button class="boton" id="calI">Calcular I</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Diámetro:</td>
+            <td class="celda_cen"><input class="entrada" id="D" name="Diámetro"
+
+                value="0.2" type="number"></td>
+            <td class="celda_der"><button class="boton" id="calD">Calcular D</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Aspereza:</td>
+            <td class="celda_cen"><input class="entrada" id="ka" name="Aspereza"
+
+                value="2e-5" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Viscosidad cinemática:</td>
+            <td class="celda_cen"><input class="entrada" id="nu" name="Viscosidad cinemática"
+
+                value="1e-6" type="number"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Esta calculadora tiene como objetivo que la resolución de las variables
+        caudal, pendiente motriz y diámetro, usando el factor de rozamiento
+        según White-Colebrook, no te impida abordar los análisis más sencillos.</p>
+      <p>No obstante, el dominio de las técnicas de resolución de dichas
+        variables te permitirá abordar análisis con cierta complejidad.</p>
+      <footer>R. Sánchez - Ingeniería Hidráulica<br>
+        UPM - Dept. Ingeniería Rural</footer>
+    </div>
+  </body>
+</html>

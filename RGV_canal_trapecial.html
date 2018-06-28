@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link link="" rel="stylesheet" href="estilo_HeHA.css" type="text/css">
+    <title>Régimen gradualmente variado en canales trapeciales</title>
+    <!--<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>-->
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript">
+      
+      $(function(){
+        var caudal, pendTopo, caladoContorno, anchoSol, talud, aspereza, difCalado, nInterv;
+        var calado=new Array(), energEsp=new Array(), pMotriz=new Array(), distX=new Array(),yc,y0,tol=1e-6;
+                        
+        function calcularEje(caudal, pendTopo, caladoContorno, anchoSol, talud, aspereza, difCalado, nInterv){
+          caudal=parseFloat($('#Q').val()), pendTopo=parseFloat($('#Io').val()), caladoContorno=parseFloat($('#yxo').val()),anchoSol=parseFloat($('#b').val()),
+          talud=parseFloat($('#z').val()), aspereza=parseFloat($('#n').val()), difCalado=parseFloat($('#dy').val()), nInterv=parseInt($('#nInt').val());
+          $('#ejeHidraulico').empty();
+          $('#ejeHidraulico').html('<tr>'+'<th>'+'Nº sección'+'</th>'+'<th>'+'Distancia x'+'</th>'+'<th>'+'Calado y'+'</th>'+'</tr>');
+          calado[0]=caladoContorno;
+          distX[0]=0;
+          for (i=0;i<=nInterv;i++){
+            if (i>0){calado[i]=calado[i-1]+difCalado};
+            energEsp[i]=calado[i]+Math.pow(caudal/calado[i]/(anchoSol+talud*calado[i]),2)/2/9.80665;
+            pMotriz[i]=Math.pow(caudal*aspereza*Math.pow(anchoSol+2*calado[i]*Math.sqrt(1+Math.pow(talud,2)),2/3)/Math.pow(calado[i]*(anchoSol+talud*calado[i]),5/3),2);
+            if (i>0){distX[i]=distX[i-1]+(energEsp[i]-energEsp[i-1])/(pendTopo-(pMotriz[i-1]+pMotriz[i])/2)};
+            
+            $('#ejeHidraulico').append('<tr>'+'<td>'+i+'</td>'+'<td>'+distX[i].toFixed(3)+'</td>'+'<td>'+calado[i].toFixed(3)+'</td>'+'</tr>');
+            
+          }
+          
+          var yc_a=0.1, yc=yc_a+2*tol;
+          while (Math.abs(yc-yc_a)>tol){
+            yc_a=yc;
+            yc=Math.pow(Math.pow(caudal,2)*(anchoSol+2*talud*yc_a)/Math.pow(anchoSol+talud*yc_a,3)/9.80665,1/3);
+          };
+          $('#yc').val(yc.toFixed(3));
+          
+          var y0_a=0.1, y0=y0_a+2*tol;
+          while (Math.abs(y0-y0_a)>tol){
+            y0_a=y0;
+            y0=Math.pow(caudal*aspereza*Math.pow(anchoSol+2*y0_a*Math.sqrt(1+Math.pow(talud,2)),2/3)/Math.pow(anchoSol+talud*y0_a,5/3)/Math.sqrt(pendTopo),3/5);
+          };
+          $('#y0').val(y0.toFixed(3));
+          
+        };
+        
+        calcularEje();
+        
+        $('#calEje').on('click',calcularEje);
+                
+      });  
+    </script>
+  </head>
+  <body>
+    <div class="caja">
+      <header class="cabecera">
+        <h4>Régimen gradualmente variado en canales trapeciales</h4>
+        <h5>Unidades en el SI</h5>
+      </header>
+      <table class="tabla">
+        <tbody class="cuerpo_tabla">
+          <tr>
+            <td class="celda_izq">Caudal:</td>
+            <td class="celda_cen"><input class="entrada" id="Q" name="Caudal" value="0.025"
+
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="calEje">Calcular Eje
+                Hidráulico</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Pendiente topográfica:</td>
+            <td class="celda_cen"><input class="entrada" id="Io" name="Pendiente topográfica"
+
+                value="0.001" type="number"></td>
+            <td class="celda_der">y<sub>0</sub><input class="salida" id="y0" name="Calado normal"
+
+                value="" readonly="true" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Calado condición contorno:</td>
+            <td class="celda_cen"><input class="entrada" id="yxo" name="Calado condición contorno"
+
+                value="0.2" type="number"></td>
+            <td class="celda_der">y<sub>c</sub><input class="salida" id="yc" name="Calado crítico"
+
+                value="" readonly="true" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Ancho solera:</td>
+            <td class="celda_cen"><input class="entrada" id="b" name="Ancho solera"
+
+                value="0.4" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Talud quijeros:</td>
+            <td class="celda_cen"><input class="entrada" id="z" name="Talud quijeros"
+
+                value="0.58" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Coef. aspereza:</td>
+            <td class="celda_cen"><input class="entrada" id="n" name="Coeficiente aspereza"
+
+                value="0.012" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Dif. calado:</td>
+            <td class="celda_cen"><input class="entrada" id="dy" name="Diferencia finita calado"
+
+                value="0.01" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Número secciones:</td>
+            <td class="celda_cen"><input class="entrada" id="nInt" name="Número de intervalos de integración"
+
+                value="10" type="number"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="tabla" id="ejeHidraulico">
+        <!--<tr><td>Nº sección</td><td>Distancia x</td><td>Calado y</td></tr>-->
+      </table>
+      <p>Esta calculadora tiene como objetivo que la resolución de la ecuación
+        diferencial del régimen gradualmente variado, por diferencias finitas
+        con formulación explícita, no te impida abordar los análisis más
+        sencillos.</p>
+      <p>No obstante, el dominio de las técnicas de resolución de dichas
+        variables te permitirá abordar análisis con cierta complejidad.</p>
+      <footer>R. Sánchez - Ingeniería Hidráulica<br>
+        UPM - Dept. Ingeniería Rural</footer>
+    </div>
+  </body>
+</html>

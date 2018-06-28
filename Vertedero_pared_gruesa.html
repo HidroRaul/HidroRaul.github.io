@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link link="" rel="stylesheet" href="estilo_HeHA.css" type="text/css">
+    <title>Vertedero de pared gruesa en canal rectangular</title>
+    <!--<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>-->
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript">
+      
+      $(function(){
+        var caudal, alturavert, anchosolarri, anchosolestre, realce;
+        var tol=+1e-6;
+                
+        function calcularQ(alturavert, anchosolarri, anchosolestre, realce){
+          alturavert=parseFloat($('#h').val()), anchosolarri=parseFloat($('#B').val()), anchosolestre=parseFloat($('#b').val()), realce=parseFloat($('#p').val());
+          var caudal_a=0.001, caudal=caudal_a+2*tol;
+          while (Math.abs(caudal-caudal_a)>tol){
+            caudal_a=caudal;
+            caudal=anchosolestre*Math.sqrt(9.80665)*Math.pow(2/3*(alturavert+Math.pow(caudal_a/anchosolarri/(alturavert+realce),2)/2/9.80665),3/2);
+          };
+          $('#Q').val(caudal.toFixed(4));
+        
+        };
+        
+        function calcularh(caudal, anchosolarri, anchosolestre, realce){
+          caudal=parseFloat($('#Q').val()), anchosolarri=parseFloat($('#B').val()), anchosolestre=parseFloat($('#b').val()), realce=parseFloat($('#p').val());
+          var alturavert_a=0.001, alturavert=alturavert_a+2*tol;
+          while (Math.abs(alturavert-alturavert_a)>tol){
+            alturavert_a=alturavert;
+            alturavert=3/2*Math.pow(caudal/anchosolestre/Math.sqrt(9.80665),2/3)-Math.pow(caudal/anchosolarri/(alturavert+realce),2)/2/9.80665;
+          };
+          $('#h').val(alturavert.toFixed(3));
+        
+        };
+        
+        calcularQ();
+        
+        $('#calQ').on('click',calcularQ);
+        $('#calh').on('click',calcularh);
+        
+        
+      });  
+    </script>
+  </head>
+  <body>
+    <div class="caja">
+      <header class="cabecera">
+        <h4>Vertedero de pared gruesa<br>
+          F(Q, h ,B, b, p)=0 en régimen crítico</h4>
+        <h5>Unidades en el SI</h5>
+      </header>
+      <table class="tabla">
+        <tbody class="cuerpo_tabla">
+          <tr>
+            <td class="celda_izq">Caudal:</td>
+            <td class="celda_cen"><input class="entrada" id="Q" name="Caudal" value="0.005"
+
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="calQ">Calcular Q</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Altura vertido:</td>
+            <td class="celda_cen"><input class="entrada" id="h" name="Altura de vertido"
+
+                value="0.1" type="number"></td>
+            <td class="celda_der"><button class="boton" id="calh">Calcular h</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Ancho ag. arriba:</td>
+            <td class="celda_cen"><input class="entrada" id="B" name="Ancho aguas arriba"
+
+                value="0.4" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Ancho estrechamiento:</td>
+            <td class="celda_cen"><input class="entrada" id="b" name="Ancho sección estrechamiento"
+
+                value="0.2" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Realce solera:</td>
+            <td class="celda_cen"><input class="entrada" id="p" name="Altura del realce de la solera"
+
+                value="0.05" type="number"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Esta calculadora tiene como objetivo que la resolución de las variables
+        caudal y altura de vertido en vertederos de pared gruesa en canales de
+        sección rectangular, con régimen crítico, no te impida abordar los
+        análisis más sencillos.</p>
+      <p>No obstante, el dominio de las técnicas de resolución de dichas
+        variables te permitirá abordar análisis con cierta complejidad.</p>
+      <footer>R. Sánchez - Ingeniería Hidráulica<br>
+        UPM - Dept. Ingeniería Rural</footer>
+    </div>
+    
+  </body>
+</html>

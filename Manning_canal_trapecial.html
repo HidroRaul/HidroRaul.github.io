@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link link="" rel="stylesheet" href="estilo_HeHA.css" type="text/css">
+    <title>Flujo en canales trapeciales según Manning</title>
+    <!--<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>-->
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript">
+      
+      $(function(){
+        var caudal, pmotriz, calado, anchosol, talud, aspereza;
+        var tol=+1e-6;
+                
+        function calcularQ(pmotriz, calado, anchosol, talud, aspereza){
+          pmotriz=parseFloat($('#I').val()), calado=parseFloat($('#y').val()), anchosol=parseFloat($('#b').val()), talud=parseFloat($('#z').val()), aspereza=parseFloat($('#n').val());
+          caudal=Math.sqrt(pmotriz)/aspereza*Math.pow(calado*(anchosol+talud*calado),5/3)/Math.pow(anchosol+2*calado*Math.sqrt(1+Math.pow(talud,2)),2/3);
+          $('#Q').val(caudal.toFixed(4));
+          
+        };
+        
+        function calcularI(caudal, calado, anchosol, talud, aspereza){
+          caudal=parseFloat($('#Q').val()), calado=parseFloat($('#y').val()), anchosol=parseFloat($('#b').val()), talud=parseFloat($('#z').val()), aspereza=parseFloat($('#n').val());
+          pmotriz=Math.pow(caudal*aspereza*Math.pow(anchosol+2*calado*Math.sqrt(1+Math.pow(talud,2)),2/3)/Math.pow(calado*(anchosol+talud*calado),5/3),2);
+          $('#I').val(pmotriz.toFixed(6));
+        
+        };
+        
+        function calculary(caudal, pmotriz, anchosol, talud, aspereza){
+          caudal=parseFloat($('#Q').val()), pmotriz=parseFloat($('#I').val()), anchosol=parseFloat($('#b').val()), talud=parseFloat($('#z').val()), aspereza=parseFloat($('#n').val());
+          var calado_a=0.1, calado=calado_a+2*tol;
+          while (Math.abs(calado-calado_a)>tol){
+            calado_a=calado;
+            calado=Math.pow(caudal*aspereza*Math.pow(anchosol+2*calado*Math.sqrt(1+Math.pow(talud,2)),2/3)/Math.pow(anchosol+talud*calado,5/3)/Math.sqrt(pmotriz),3/5);
+          };
+          $('#y').val(calado.toFixed(3));
+        
+        };
+        
+        calcularQ();
+        
+        $('#calQ').on('click',calcularQ);
+        $('#calI').on('click',calcularI);
+        $('#caly').on('click',calculary);
+        
+      });  
+    </script>
+  </head>
+  <body>
+    <div class="caja">
+      <header class="cabecera">
+        <h4>Flujo en canales trapeciales<br>
+          F(Q, I ,y, b, z, n)=0 según Manning</h4>
+        <h5>Unidades en el SI</h5>
+      </header>
+      <table class="tabla">
+        <tbody class="cuerpo_tabla">
+          <tr>
+            <td class="celda_izq">Caudal:</td>
+            <td class="celda_cen"><input class="entrada" id="Q" name="Caudal" value="0.025"
+
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="calQ">Calcular Q</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Pendiente motriz:</td>
+            <td class="celda_cen"><input class="entrada" id="I" name="Pendiente motriz"
+
+                value="0.001" type="number"></td>
+            <td class="celda_der"><button class="boton" id="calI">Calcular I</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Calado:</td>
+            <td class="celda_cen"><input class="entrada" id="y" name="Calado" value="0.2"
+
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="caly">Calcular y</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Ancho solera:</td>
+            <td class="celda_cen"><input class="entrada" id="b" name="Ancho solera"
+
+                value="0.4" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Talud quijeros:</td>
+            <td class="celda_cen"><input class="entrada" id="z" name="Talud quijeros"
+
+                value="0.58" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Coef. aspereza:</td>
+            <td class="celda_cen"><input class="entrada" id="n" name="Coeficiente aspereza"
+
+                value="0.012" type="number"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Esta calculadora tiene como objetivo que la resolución de las variables
+        caudal, pendiente motriz y calado en canales de sección trapecial,
+        usando la ecuación de Manning, no te impida abordar los análisis más
+        sencillos.</p>
+      <p>No obstante, el dominio de las técnicas de resolución de dichas
+        variables te permitirá abordar análisis con cierta complejidad.</p>
+      <footer>R. Sánchez - Ingeniería Hidráulica<br>
+        UPM - Dept. Ingeniería Rural</footer>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link link="" rel="stylesheet" href="estilo_HeHA_b.css" type="text/css">
+    <title>Redes a presión</title>
+    <!-- <script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script> -->
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript">
+
+      $(function(){
+        var Stol=1e-3;//Tolerancia en el error de calcular_h. ¡No funciona, se usa tol!
+        var tol=1e-6;//Tolerancia en el error de calcularI
+
+        var tramos=[], cotas_nudos=[], Scaudal=[], Shf=[], H=[], caudal_nudo=[], altpres=[], altpresz=[];
+
+        //calcular_h();//Ejecuta calcular_h al cargar la página.
+        $('#calQ').on('click',calcular_h);
+
+        function calcular_h(){
+          //Crea cabecera en la tabla 'resultados' para salida de resultados
+          $('#resultados').html('<tr>'+'<th>'+'Tramo/Nudo j'+'</th>'+'<th>'+'Cota nudo'+'</th>'+'<th>'+'Altura presión requerida'+'</th>'+'<th>'+'Caudal nudo'+'</th>'+'<th>'+'Caudal tramo'+'</th>'+'<th>'+'Energía nudo'+'</th>'+'</tr>');
+          var dif=2e-6, f_estab=2, num_iter=2000;
+          var contador;//, contador2=[];
+          //var Scaudal=[], Shf=[], H=[], caudal_nudo=[], altpres=[], altpresz=[];
+          //Cota de la lámina libre de agua del depósito de cabeza. Puede recibir agua. Es el nudo 0
+          var H_0=$('#h_0').val();
+          H_0=Number(H_0);
+          var visc=parseFloat($('#nu').val());//El valor de la viscosidad es único para todos los elementos del sistema
+
+          //Definición de variables. Deberán tomarse de la base de datos
+          //var tramos=$('#tramos').val().split(', ');
+          tramos=$('#tramos').val().split(', ');
+          //Nudo precedente. Se indica la posición del nudo precedente en el vector tramos.
+          var precedente=$('#precedente').val().split(', ');
+          //Nudo por el que entra el agua que sale de otro nudo indicado por -1 -para mallas-. Se indica la posición del nudo precedente en el vector tramos.
+          var malla=$('#malla').val().split(', ');
+          //Características y tipología de nudos.
+          cotas_nudos=$('#cotas_nudos').val().split(', ');
+          var altpres_nom_nudos=$('#altpres_nom_nudos').val().split(', ');
+          var caud_nom_nudos=$('#caud_nom_nudos').val().split(', ');
+          var exp_desag_nudos=$('#exp_desag_nudos').val().split(', ');
+          var caud_reg_nudos=$('#caud_reg_nudos').val().split(', ');
+          //Características y tipología de los tramos. De momento, sólo tuberías.
+          var diamets=$('#diamets').val().split(', ');
+          var asperezas=$('#asperezas').val().split(', ');
+          var longitudes=$('#longitudes').val().split(', ');
+          var localizada=$('#localizada').val().split(', ');//longitud equivalente de cada tramo.
+
+          //Se convierte la información del formulario al formato adecuado
+          for (i=0;i<tramos.length;i++){
+             //tramos[i]=Number(tramos[i]);
+             if (precedente[i]==='origen'){
+               precedente[i]=tramos.length;
+             }else{
+               precedente[i]=Number(precedente[i]);
+             }
+             if(malla[i]==='null'){
+               malla[i]=null;
+             }else{
+               malla[i]=Number(malla[i]);
+             }
+             if(cotas_nudos[i]==='null'){
+               cotas_nudos[i]=null;
+             }else{
+               cotas_nudos[i]=Number(cotas_nudos[i]);
+             }
+             if(altpres_nom_nudos[i]==='null'){
+               altpres_nom_nudos[i]=null;
+             }else{
+               altpres_nom_nudos[i]=Number(altpres_nom_nudos[i]);
+             }
+             caud_nom_nudos[i]=Number(caud_nom_nudos[i]);
+             exp_desag_nudos[i]=Number(exp_desag_nudos[i]);
+             caud_reg_nudos[i]=Number(caud_reg_nudos[i]);
+             diamets[i]=Number(diamets[i]);
+             asperezas[i]=Number(asperezas[i]);
+             longitudes[i]=Number(longitudes[i]);
+             localizada[i]=Number(localizada[i]);
+          }
+
+          //La energía del nudo 0 se pone en el último elemento de H.
+          H[tramos.length]=H_0;
+
+          //Matriz de conexión. Se usa para calcular el caudal del los tramos y las pérdidas de carga acumuladas hasta cada nudo.
+          var conexion=[];
+          for (i=0;i<tramos.length;i++){
+            conexion[i]=[];
+          }
+          //Genera matriz conexion a partir de vector 'precedente'
+          for (i=0;i<tramos.length;i++){
+            for (j=0;j<tramos.length;j++){
+              if(i==j){
+                conexion[i][j]=1;
+              }else{
+                conexion[i][j]=0;
+                for (k=0;k<tramos.length;k++){
+                  var a=precedente[k];
+                  for (l=0;l<tramos.length;l++){
+                    if (i==a) conexion[i][k]=1;
+                    a=precedente[a];
+                  }
+                }
+              }
+            }
+          }
+
+          //Valor inicial para la determinación iterativa de los caudales desaguados.
+          //Se usa el caudal nominal del nudo como valor inicial.
+          for (i=0;i<conexion.length;i++){
+            if (caud_nom_nudos[i]!=0){
+              if(malla[i]==null | malla[i]==-1){
+                // Nudo con consumo y no binomio malla
+                caudal_nudo[i]=caud_nom_nudos[i];
+              }else{
+                //Binomio malla
+                caudal_nudo[i]=-caudal_nudo[malla[i]];
+              }
+            }else{
+              // Nudo sin consumo
+              caudal_nudo[i]=0;
+            }
+          }
+
+          //Se ponen los contadores a cero.
+          contador=0;
+          // for (i=0;i<conexion.length;i++){
+          //   contador2[i]=0;
+          // }
+
+          //Se modifican los caudales de los nudos de manera iterativa hasta que dif sea pequeño o se alcance el númmero máximo de iteraciones.
+          while(dif>tol & contador<num_iter){
+
+            dif=0;//suma de las diferencia entre al energía disponible y la requerida en los nudos.
+
+            //Se calcula la altura de presión correspondiente a los caudales de los nudos.
+            for (i=0;i<conexion.length;i++){
+              Scaudal[i]=0, Shf[i]=0;
+              if(caud_nom_nudos[i]!=0 & malla[i]==null){
+                altpres[i]=altpres_nom_nudos[i]*Math.pow(caudal_nudo[i]/caud_nom_nudos[i],exp_desag_nudos[i]);
+                if(altpres_nom_nudos[i]==0){
+                  altpres[i]=0;
+                }
+              }else{
+                altpres[i]=null;
+              }
+              altpresz[i]=altpres[i]+cotas_nudos[i];
+            }
+
+            //Caudal de cada tramo
+            for (i=0;i<conexion.length;i++){
+              for (j=0;j<conexion[i].length;j++){
+                Scaudal[i]=Scaudal[i]+conexion[i][j]*caudal_nudo[j];
+              }
+            }
+
+            //Energía en cada nudo a partir de la hf acumulada -Energía disponible-.
+            for (i=0;i<conexion.length;i++){
+              for (j=0;j<conexion[i].length;j++){
+                tramo=tramos[j], diamet=diamets[j], aspereza=asperezas[j], longitud=longitudes[j], caudal=Scaudal[j];
+                if (caudal==0){
+                  hf=0;
+                }else{
+                  hf=calcularI(caudal, diamet, aspereza, visc)*longitud*Math.sign(caudal);
+                }
+                Shf[i]=Shf[i]+conexion[j][i]*hf*(1+localizada[i]);
+              }
+              H[i]=H[tramos.length]-Shf[i];
+            }
+
+            //Se calcula dif, que cuantifica el error, para los nudos con consumo y que no estén en estado de regulación.
+            //Y se corrige el caudal de los nudos.
+            for (i=0;i<tramos.length;i++){
+              if(caud_nom_nudos[i]!=0 & caudal_nudo[i]<caud_reg_nudos[i]){
+                if(malla[i]==null){
+                  if (Math.abs((cotas_nudos[i]+altpres[i])-H_0)<0.1){
+                    dif=dif+0;
+                  }else{
+                    dif=dif+Math.abs(H[i]-(cotas_nudos[i]+altpres[i]));
+                  }
+                }else{
+                  if (malla[i]==-1){
+                    dif=dif+Math.abs(H[i]-H[i+1]);
+                  }else{
+                    dif=dif+0;
+                  }
+                }
+              }else{
+                dif=dif+0;
+              }
+
+              //Corrección del caudal de los nudos.
+              if (malla[i]==null){
+                if ((Math.abs(caudal_nudo[i])>tol | caudal_nudo[i]==0)){
+                  if(caudal_nudo[i]>0){// & H[precedente[i]]>(altpres[i]+cotas_nudos[i])){
+                    caudal_nudo[i]=caudal_nudo[i]*Math.pow((H_0-(altpres[i]+cotas_nudos[i]))/(H_0-H[i]),1/f_estab);
+                  }else{
+                    caudal_nudo[i]=caudal_nudo[i]*Math.pow((H_0-H[i])/(H_0-(altpres[i]+cotas_nudos[i])),1/f_estab);
+                  }
+                }else{
+                  caudal_nudo[i]=-caudal_nudo[i]*100;
+                }
+
+              //Nudos malla(altpres[i]+cotas_nudos[i])-2*H[i]
+              }else{
+                //Side-node -es como sidecar-.
+                if(malla[i]!=-1){
+                  caudal_nudo[i]=-caudal_nudo[malla[i]];
+                //Nudo maestro malla.
+                }else{
+                  if(H[i]>H[i+1]){
+                    if(caudal_nudo[i]>0){
+                      caudal_nudo[i]=caudal_nudo[i]*Math.pow((H_0+H[i])/(H_0+H[i+1]),1/f_estab);
+                    }else{
+                      caudal_nudo[i]=-caudal_nudo[i];
+                    }
+                  }else{
+                    if(caudal_nudo[i]<0){
+                      caudal_nudo[i]=caudal_nudo[i]*Math.pow((H_0+H[i+1])/(H_0+H[i]),1/f_estab);
+                    }else{
+                      caudal_nudo[i]=-caudal_nudo[i];
+                    }
+                  }
+                }
+              }
+
+              //Se comprueba si el valor del caudal propuesta estaría regulado.
+              if (Math.abs(caudal_nudo[i])>caud_reg_nudos[i]) caudal_nudo[i]=caud_reg_nudos[i];
+              //console.log('caudal_nudo['+tramos[i]+']= '+caudal_nudo[i]+'; Scaudal['+tramos[i]+']= '+Scaudal[i]+'; altpres['+tramos[i]+']= '+altpres[i]+'; H['+tramos[i]+']= '+H[i]+'; Hprec= '+H[precedente[i]]+'; altpres+z= '+altpresz[i]);
+            }
+
+            //Se incrementa el contador de iteraciones
+            contador++;
+            //console.log('contador= '+contador+'; contador2= '+contador2+' dif= '+dif);
+            // console.log('contador= '+contador+' dif= '+dif);
+            // console.log();
+          }
+
+          //Salida de resultados en forma de tabla
+          for (i=0;i<tramos.length;i++){
+            if (altpres[i]===null) altpres[i]=0;
+            console.log('caudal_nudo['+tramos[i]+']= '+caudal_nudo[i]+'; Scaudal['+tramos[i]+']= '+Scaudal[i]+'; altpres['+tramos[i]+']= '+altpres[i]+'; H['+tramos[i]+']= '+H[i]+'; Hprec= '+H[precedente[i]]+'; altpres+z= '+altpresz[i]);
+            $('#resultados').append('<tr>'+'<td>'+tramos[i]+'</td>'+'<td>'+cotas_nudos[i]+'</td>'+'<td>'+altpres_nom_nudos[i]+'</td>'+'<td>'+caudal_nudo[i].toFixed(4)+'</td>'+'<td>'+Scaudal[i].toFixed(3)+'</td>'+'<td>'+H[i].toFixed(3)+'</td>'+'</tr>');
+          }
+          //$('#resultados').append('<tr>'+'<td>'+Nuevo cálculo+'</tr>'+'</td>');
+
+        }
+
+        //Cálculo de la pendiente motriz en un tramo según White-Colebrook.
+        function calcularI(caudal, diamet, aspereza, visc){
+          var pmotriz_a=0.001;
+          var pmotriz=pmotriz_a+2*tol;
+          while (Math.abs(pmotriz-pmotriz_a)>tol){
+            pmotriz_a=pmotriz;
+            pmotriz=Math.pow((4*Math.abs(caudal)/Math.PI/Math.pow(diamet,2)/(-2/Math.LN10*Math.log(aspereza/3.7/diamet+2.52*visc/diamet/Math.sqrt(2*9.80665*pmotriz_a*diamet)))),2)/2/9.80665/diamet;
+          };
+          return pmotriz;
+        };
+
+
+      });
+
+    </script>
+  </head>
+  <body>
+    <div class="caja">
+      <header class="cabecera">
+        <h4>Red de distribución a presión</h4>
+        <h5>Unidades en el SI</h5>
+      </header>
+      <table class="tabla">
+        <tbody class="cuerpo_tabla">
+          <tr>
+            <td class="celda_izq">Esquema red inicial ejemplo</td>
+            <td class="celda_cen"><img src="red_inicial.png" alt="Esquema red"></td>
+            <td class="celda_der"><button class="boton" id="calQ" onClick="javascript:location.href = '#resultadosLoc';">Calcular Q</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Cota lámina depósito referencia:</td>
+            <td class="celda_cen"><input class="entrada" id="h_0" name="H_0" value="7.6" type="text"></td>
+            <td class="celda_der"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Tramos/Nudos aguas abajo:</td>
+            <td class="celda_cen"><input class="entrada" id="tramos" name="Tramos" value="1, 2, 3, 4, 5, 6, 7" type="text"></td>
+            <td class="celda_der">Nombres separados por ", " (coma y espacio)</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Nudos aguas arriba:</td>
+            <td class="celda_cen"><input class="entrada" id="precedente" name="Precedente" value="3, 3, 4, 4, origen, 1, 2" type="text"></td>
+            <td class="celda_der">Números indicadores de posición, comenzando en 0, en el vector de arriba, separados por ", " (coma y espacio)</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Malla:</td>
+            <td class="celda_cen"><input class="entrada" id="malla" name="Malla" value="null, null, null, null, null, -1, 5" type="text"></td>
+            <td class="celda_der">Nudos que cierran una malla; -1 es el nudo maestro y, a continuación la posición del esclavo, separados por ", " (coma y espacio)</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Cotas nudos:</td>
+            <td class="celda_cen"><input class="entrada" id="cotas_nudos" name="Cotas_nudos" value="1, 2, 3, null, null, null, null" type="text"></td>
+            <td class="celda_der">Cotas de los nudos con consumo</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Altura de presión en los nudos:</td>
+            <td class="celda_cen"><input class="entrada" id="altpres_nom_nudos" name="Altpres_nom_nudos" value="0, 0, 2, 0, 0, null, null" type="text"></td>
+            <td class="celda_der">Altura de presión en los nudos con consumo</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Caudal nominal nudos:</td>
+            <td class="celda_cen"><input class="entrada" id="caud_nom_nudos" name="Caud_nom_nudos" value="0.025, 0.04, 0.015, 0, 0, 0.001, -0.001" type="text"></td>
+            <td class="celda_der">Caudal nominal de los nudos. Valor cero si no hay consumo</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Exponente ec. desagüe nudos:</td>
+            <td class="celda_cen"><input class="entrada" id="exp_desag_nudos" name="Exp_desag_nudos" value="2, 2, 0, 2, 2, 0, 0" type="text"></td>
+            <td class="celda_der">Exponente ec. desagüe nudos. Valor cero si la altura de presión la fija un depósito</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Límite caudal nudos:</td>
+            <td class="celda_cen"><input class="entrada" id="caud_reg_nudos" name="Caud_reg_nudos" value="1000, 1000, 1000, 1000, 1000, 1000, 1000" type="text"></td>
+            <td class="celda_der">En caso de que los nudos cuenten con un limitador de caudal. Si no lo tienen poner un valor muy alto</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Diámetros:</td>
+            <td class="celda_cen"><input class="entrada" id="diamets" name="Diamets" value="0.15, 0.2, 0.15, 0.25, 0.3, 0.15, 0.15" type="text"></td>
+            <td class="celda_der">Diámetros de los tramos</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Asperezas:</td>
+            <td class="celda_cen"><input class="entrada" id="asperezas" name="Asperezas" value="3e-5, 3e-5, 3e-5, 3e-5, 3e-5, 3e-5, 3e-5" type="text"></td>
+            <td class="celda_der">Aspereza de arena equivalente de los tubos de los tramos</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Longitudes:</td>
+            <td class="celda_cen"><input class="entrada" id="longitudes" name="Longitudes" value="150, 200, 100, 250, 300, 150, 150" type="text"></td>
+            <td class="celda_der">Longitud de cada tramo</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Longitud equivalente de pérdidas de carga localizadas:</td>
+            <td class="celda_cen"><input class="entrada" id="localizada" name="Localizada" value="0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1" type="text"></td>
+            <td class="celda_der">Proporción estimada de las pérdidas de carga localizadas frente a las de los tramos uniformes en cada tramo</td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Viscosidad cinemática del agua:</td>
+            <td class="celda_cen"><input class="entrada" id="nu" name="Viscosidad cinemática" value="1e-6" type="number"></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3><a id="resultadosLoc"></a>Resultados</h3>
+      <table class="tabla" id="resultados">
+        <!--<tr><td>Nº sección</td><td>Distancia x</td><td>Calado y</td></tr>-->
+      </table>
+      <p>Esta calculadora, en las que las las pérdidas de carga en tramos uniformes se calculan con el factor de rozamiento
+        de White-Colebrook, tiene como objetivo que la determinación de los caudales desaguados en las bocas o en los depósitos (nodos de consumo), no te impida abordar los análisis más sencillos.</p>
+      <p>No obstante, el dominio de las técnicas de resolución de dichas
+        variables te permitirá abordar análisis con cierta complejidad.</p>
+      <footer>R. Sánchez - Profesor de Ingeniería Hidráulica<br>
+        UPM - Dept. Ingeniería Agroforestal</footer>
+    </div>
+  </body>
+</html>

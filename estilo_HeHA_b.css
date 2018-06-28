@@ -1,0 +1,71 @@
+@font-face{
+        font-family: Fira Sans;
+        src: url(fira-sans/FiraSansOT-Regular.otf) format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        }
+
+body{margin:0px;
+    }
+
+.caja{width: auto;
+     /*max-width:;*/
+     background-color: #ddd;
+     font-family:Fira Sans, Sans;
+     }
+
+.cabecera{  height: 5rem;
+            width: 100%;
+            background-color: #bb482d;
+            border-radius: 0px;
+            color: #fff;
+            text-align: center;
+            }
+
+header h4{margin-top:0px;
+         }
+
+.tabla{color:#ddd;
+       border:none;
+       background-color: #333;
+       border-radius: 0px;
+       }
+
+.tabla th   {width:auto;
+              border-style: solid;
+              border-color: grey;
+              border-width: 1px;
+
+            }
+
+.celda_izq{
+}
+
+.celda_cen{
+  min-width: 250px;
+  width:auto;
+}
+
+.celda_der{
+}
+
+.entrada{border-radius:5px;
+        min-width: 250px;
+         width:auto;
+}
+
+.salida{border-radius:5px;
+         width:78px;
+}
+
+.boton{border-radius:   5px;
+       font-family:Fira Sans, Sans;
+}
+
+footer{color:#bb482d;
+        text-align:right;
+        font-size:90%;
+        }
+
+#resultados{text-align: center;
+}

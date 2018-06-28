@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link link="" rel="stylesheet" href="estilo_HeHA.css" type="text/css">
+    <title>Vertedero rectangular de pared delgada</title>
+    <!--<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>-->
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript">
+      
+      $(function(){
+        var caudal, alturavert, ancho, coronacion;
+        var caudal2;
+        var tol=+1e-6;
+                
+        function calcularQ(alturavert, ancho, coronacion){
+          alturavert=parseFloat($('#h').val()), ancho=parseFloat($('#b').val()), coronacion=parseFloat($('#p').val());
+          var caudal_a=0.001, caudal=caudal_a+2*tol;
+          while (Math.abs(caudal-caudal_a)>tol){
+            caudal_a=caudal;
+            caudal=ancho*0.62*2/3*Math.sqrt(2*9.80665)*(Math.pow(alturavert+Math.pow(caudal_a/ancho/(alturavert+coronacion),2)/2/9.80665,3/2)-Math.pow(Math.pow(caudal_a/ancho/(alturavert+coronacion),2)/2/9.80665,3/2));
+          $('#Q').val(caudal.toFixed(4));
+          }
+        
+        };
+        
+        function calcularh(caudal, ancho, coronacion){
+          caudal=parseFloat($('#Q').val()), ancho=parseFloat($('#b').val()), coronacion=parseFloat($('#p').val());
+          var alturavert_a=0.001, alturavert=alturavert_a+2*tol;
+          while (Math.abs(alturavert-alturavert_a)>tol){
+            alturavert_a=alturavert;
+            alturavert=Math.pow(caudal/ancho/0.62*3/2/Math.sqrt(2*9.80665)+Math.pow(Math.pow(caudal/ancho/(alturavert_a+coronacion),2)/2/9.80665,3/2),2/3)-Math.pow(caudal/ancho/(alturavert_a+coronacion),2)/2/9.80665;
+          };
+          $('#h').val(alturavert.toFixed(3));
+        
+        };
+        
+        /*function calcularQ2(alturavert, ancho, coronacion){
+          alturavert=parseFloat($('#h').val()), ancho=parseFloat($('#b').val()), coronacion=parseFloat($('#p').val());
+          caudal2=ancho*2/3*Math.sqrt(2*9.80665)*Math.pow(alturavert,3/2);
+          $('#Q2').val(caudal2.toFixed(4));
+        };*/
+        
+        calcularQ();
+        
+        $('#calQ').on('click',calcularQ);
+        //$('#calQ2').on('click',calcularQ2);
+        $('#calh').on('click',calcularh);
+        
+        
+      });  
+    </script>
+  </head>
+  <body>
+    <div class="caja">
+      <header class="cabecera">
+        <h4>Vertedero rectangular de pared delgada<br>
+          F(Q, h , b, p)=0</h4>
+        <h5>Unidades en el SI</h5>
+      </header>
+      <table class="tabla">
+        <tbody class="cuerpo_tabla">
+          <tr>
+            <td class="celda_izq">Caudal:</td>
+            <td class="celda_cen"><input class="entrada" id="Q" name="Caudal" value="0.005"
+
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="calQ">Calcular Q</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Altura de vertido:</td>
+            <td class="celda_cen"><input class="entrada" id="h" name="Altura de vertido"
+
+                value="0.05" type="number"></td>
+            <td class="celda_der"><button class="boton" id="calh">Calcular h</button></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Ancho del canal:</td>
+            <td class="celda_cen"><input class="entrada" id="b" name="Ancho aguas arriba"
+
+                value="0.2" type="number"></td>
+          </tr>
+          <tr>
+            <td class="celda_izq">Altura coronación:</td>
+            <td class="celda_cen"><input class="entrada" id="p" name="Altura del realce de la solera"
+
+                value="0.2" type="number"></td>
+          </tr>
+          <!--<tr>
+            <td class="celda_izq">Caudal aprox.:</td>
+            <td class="celda_cen"><input class="entrada" id="Q2" name="Caudal aproximado" value="0.005"
+                type="number"></td>
+            <td class="celda_der"><button class="boton" id="calQ2">Calcular Q aprox.</button></td>
+          </tr>-->
+        </tbody>
+      </table>
+      <p>Esta calculadora tiene como objetivo que la resolución de las variables
+        caudal y altura de vertido en vertederos rectangulares de pared delgada
+        no te impida abordar los análisis más sencillos.</p>
+      <p>No obstante, el dominio de las técnicas de resolución de dichas
+        variables te permitirá abordar análisis con cierta complejidad.</p>
+      <footer>R. Sánchez - Ingeniería Hidráulica<br>
+        UPM - Dept. Ingeniería Rural</footer>
+    </div>
+  </body>
+</html>
