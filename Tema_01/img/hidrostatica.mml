@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mi>H</mi>
+    <mo stretchy="false">=</mo>
+    <mrow>
+     <mfrac>
+      <mi>p</mi>
+      <mi mathvariant="normal">γ</mi>
+     </mfrac>
+     <mo stretchy="false">+</mo>
+     <mi>z</mi>
+    </mrow>
+    <mo stretchy="false">=</mo>
+    <mi mathvariant="italic">cte</mi>
+   </mrow>
+   <mi>.</mi>
+  </mrow>
+  <annotation encoding="StarMath 5.0">H={p} over {%gamma}+z=cte.</annotation>
+ </semantics>
+</math>

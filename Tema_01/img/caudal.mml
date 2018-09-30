@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mi>Q</mi>
+    <mo stretchy="false">=</mo>
+    <mrow>
+     <mrow>
+      <munder>
+       <mo stretchy="false">∫</mo>
+       <mi mathvariant="normal">ω</mi>
+      </munder>
+      <mover accent="true">
+       <mi>u</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+     </mrow>
+     <mo stretchy="false">⋅</mo>
+     <mi>d</mi>
+    </mrow>
+   </mrow>
+   <mover accent="true">
+    <mi mathvariant="normal">ω</mi>
+    <mo stretchy="false">¯</mo>
+   </mover>
+  </mrow>
+  <annotation encoding="StarMath 5.0">Q = int from{%omega} bar u cdot d bar %omega</annotation>
+ </semantics>
+</math>

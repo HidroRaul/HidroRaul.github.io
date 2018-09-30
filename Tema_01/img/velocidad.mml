@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mover accent="true">
+    <mi>u</mi>
+    <mo stretchy="false">¯</mo>
+   </mover>
+   <mo stretchy="false">=</mo>
+   <mfrac>
+    <mrow>
+     <mi>d</mi>
+     <mover accent="true">
+      <mi>r</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+    <mi mathvariant="italic">dt</mi>
+   </mfrac>
+  </mrow>
+  <annotation encoding="StarMath 5.0">bar u ={d bar r} over {dt}</annotation>
+ </semantics>
+</math>

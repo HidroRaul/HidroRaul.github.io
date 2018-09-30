@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mo stretchy="false">−</mo>
+     <mn>1</mn>
+    </mrow>
+    <mi mathvariant="normal">ρ</mi>
+   </mfrac>
+   <mrow>
+    <mrow>
+     <mi mathvariant="italic">dp</mi>
+     <mo stretchy="false">−</mo>
+     <mi mathvariant="italic">g·dz</mi>
+    </mrow>
+    <mo stretchy="false">=</mo>
+    <mn>0</mn>
+   </mrow>
+  </mrow>
+  <annotation encoding="StarMath 5.0">{-1} over {%rho}dp -g·dz= 0</annotation>
+ </semantics>
+</math>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mover accent="true">
+    <mover accent="true">
+     <mi>t</mi>
+     <mo stretchy="false">¯</mo>
+    </mover>
+    <mo stretchy="false">¯</mo>
+   </mover>
+   <mo stretchy="false">=</mo>
+   <mrow>
+    <mo fence="true" stretchy="true">(</mo>
+    <mrow>
+     <mtable>
+      <mtr>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>11</mn>
+        </msub>
+       </mtd>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>12</mn>
+        </msub>
+       </mtd>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>13</mn>
+        </msub>
+       </mtd>
+      </mtr>
+      <mtr>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>21</mn>
+        </msub>
+       </mtd>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>22</mn>
+        </msub>
+       </mtd>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>23</mn>
+        </msub>
+       </mtd>
+      </mtr>
+      <mtr>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>31</mn>
+        </msub>
+       </mtd>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>32</mn>
+        </msub>
+       </mtd>
+       <mtd>
+        <msub>
+         <mi>T</mi>
+         <mn>33</mn>
+        </msub>
+       </mtd>
+      </mtr>
+     </mtable>
+    </mrow>
+    <mo fence="true" stretchy="true">)</mo>
+   </mrow>
+  </mrow>
+  <annotation encoding="StarMath 5.0">bar bar t=  left( matrix{T_11 # T_12 # T_13 ## T_21 # T_22 # T_23 ## T_31 # T_32 # T_33 } right)</annotation>
+ </semantics>
+</math>

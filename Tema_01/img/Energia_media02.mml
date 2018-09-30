@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mi>H</mi>
+   <mo stretchy="false">=</mo>
+   <mrow>
+    <mfrac>
+     <mi>p</mi>
+     <mi mathvariant="normal">γ</mi>
+    </mfrac>
+    <mo stretchy="false">+</mo>
+    <mi>z</mi>
+    <mo stretchy="false">+</mo>
+    <mfrac>
+     <msup>
+      <mi>U</mi>
+      <mn>2</mn>
+     </msup>
+     <mrow>
+      <mn>2</mn>
+      <mi>g</mi>
+     </mrow>
+    </mfrac>
+   </mrow>
+  </mrow>
+  <annotation encoding="StarMath 5.0">H={p} over {%gamma} + z + {U^2} over {2g}</annotation>
+ </semantics>
+</math>

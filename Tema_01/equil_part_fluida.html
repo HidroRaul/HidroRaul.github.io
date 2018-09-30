@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="estilo_MF.css" type="text/css">
+  <title>
+    Ecuaciones del movimiento (y del reposo) de los líquidos pesados
+  </title>
+</head>
+
+<body>
+  <h1>
+    Ecuaciones del movimiento (y del reposo) de los líquidos pesados
+  </h1>
+  <h2>
+    Equilibrio dinámico
+  </h2>
+  <p>
+    El movimiento de los fluidos se rige por el equilibrio de fuerzas en el conjunto de las partículas que lo forman. El análisis de dicho equilibrio en una partícula elemental de tamaño infinitesimal permite formular el movimiento en forma de ecuación diferencial. Una partícula fluida está sometida, en cada una de sus superficies, a la resultante de la fuerza de enlace.
+  </p>
+  <img src="img/equil_particula.svg">
+  <p>
+    Asimismo puede estar sometida a la acción <b><i>F</i></b> de un campo exterior. La formulación de dicho equilibrio recibe el nombre de ecuaciones de Cauchy y, particularizadas para la fuerza exterior igual a la fuerza de atracción del campo gravitatorio terrestre, se expresa:
+  </p>
+
+  <object type="image/svg+xml" data="img/Cauchy_01.mml">Este navegador no soporta el formato MathML</object>
+  <p>
+    donde
+  </p>
+  <object type="image/svg+xml" data="img/Cauchy_03.mml">Este navegador no soporta el formato MathML</object>
+
+  <p>donde &rho; es la densidad, que en el caso de los líquidos es considerada constante, &nabla; es el operador nabla, <b><i>a</i></b> es el vector aceleración y <b><i>t</i></b> es el tensor de tensiones. Este último se expresa:</p>
+  <object type="image/svg+xml" data="img/Cauchy_02.mml">Este navegador no soporta el formato MathML</object>
+
+<h2>Hidrostática</h2>
+<p>
+  Cuando un fluido se encuentra en reposo, o en movimiento con aceleración nula, se dice que se encuentra en equilibrio hidrostático. Por un lado, la aceleración es nula y, por el otro, las tensiones tangenciales también lo son, dado que no hay desplazamiento relativo entre partículas fluidas. Por tanto la Ec. de Cauchy ahora se escribe:
+</p>
+<object type="image/svg+xml" data="img/Cauchy_04.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Al multiplicar escalarmente los dos miembros por d<b><i>s</i></b>, se obtiene la ecuación fundamental de hidrostática en el campo gravitatorio terrestre. Expresada como energía por unidad de masa queda:
+</p>
+<object type="image/svg+xml" data="img/general_hidrostatica.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Puesto que el campo gravitatorio es potencial, el de presión también lo es, y recibe el nombre de potencial de presión. Y dado que el potencial gravitatorio permanece constante en un plano a nivel (con cota z = cte.) el potencial de presión también es constante en dicho plano.
+</p>
+<p>
+  En el caso de líquidos, y en aplicaciones en las que puedan considerarse incompresibles, &gamma; es constante. La ecuación fundamental de la hidrostática integrada, se expresa como energía por unidad de peso según:
+</p>
+<object type="image/svg+xml" data="img/hidrostatica.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  El potencial mecánico total, que permanece constante, es la suma del gravitatorio y el de presión. Igual que la cota requiere un plano para establecer el nivel de referencia, la presión también lo requiere. Cuando se toma como plano de referencia la presión atmosférica, se habla de presión relativa <i>p</i>. La presión absoluta <i>p</i><sub>abs</sub> es la presión relativa más la presión atmosférica. Esta última depende de las condiciones atmosféricas y de la cota sobre el nivel del mar.
+</p>
+<p>
+  Conviene destacar que la integral resuelta era indefinida. Por tanto, la expresión resultante tiene validez para cualquier masa de agua en equilibrio hidrostático. Será por tanto de aplicación en masas de agua en depósitos, embalses, lagos,… como en medios porosos, tanto saturados como no saturados.
+</p>
+<p>
+  En una superficie sumergida, la presión da lugar a una fuerza resultante que se denomina empuje. Asimismo, y en consecuencia, un cuerpo sumergido recibe un empuje ascendente cuya magnitud queda establecida por el Teorema de Arquímedes.
+</p>
+<h2>
+  Descripción del movimiento de los fluidos
+</h2>
+<p>
+  La cinemática de fluidos estudia el movimiento de estos desde un punto de vista descriptivo. La relación entre la posición de cada partícula fluida y el tiempo es analizada con independencia de las fuerzas que motivan el movimiento.
+</p>
+<p>
+  El movimiento de los fluidos se representa en la Hidráulica clásica desde el enfoque Euleriano. En el método de Euler se analiza lo que ocurre en el fluido según un punto de vista local, es decir, lo que ocurre en cada volumen diferencial definido por el vector genérico <b><i>r</i></b> en el tiempo <i>t</i>. No importa qué partícula en cuestión se encuentre en dicho volumen en cada instante de tiempo. El movimiento queda descrito por la velocidad <b><i>v</i></b> en cada punto y cada instante.
+</p>
+<p>
+  La velocidad en un punto y en un instante queda definida por el cambio de posición  de la partícula que se encontraba en dicho punto en el intervalo infinitesimal d<i>t</i>. Es decir:
+</p>
+<object type="image/svg+xml" data="img/velocidad.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  El campo de velocidades de una corriente fluida, en un instante dado, queda representado por los vectores velocidad de las partículas. Una simplificación para mejorar esta representación consiste en representar un conjunto de líneas de manera que los vectores velocidad en los puntos de las líneas sean tangentes a las mismas. Dichas líneas son conocidas como líneas de corriente y, por definición, no se cortan. Se llama superficie de corriente a las líneas de corriente que en un instante dado se apoyan en una línea continua. Por definición dicha superficie no es atravesada por ninguna línea de corriente y, por tanto, no hay flujo a través de ella. Cuando la línea sobre la que se apoyan las líneas de corriente es cerrada se habla de tubo de corriente, y al hacerlo coincidir con el contorno físico de las corrientes se constituye en el elemento de análisis de porciones finitas de fluido. El tubo de corriente de sección transversal infinitesimal se denomina filamento de corriente, y es el elemento básico para analizar el flujo de las partículas en movimiento.
+</p>
+<p>
+  La velocidad depende del espacio y del tiempo, por tanto:
+</p>
+<object type="image/svg+xml" data="img/var_velocidad.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Por tanto, la variación de la velocidad en el tiempo, es decir, la aceleración, queda:
+</p>
+<object type="image/svg+xml" data="img/aceleracion.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  La primera componente recibe el nombre de aceleración local y la segunda de aceleración convectiva. La aceleración local expresa la variación de la velocidad debido solamente al tiempo. Aquel movimiento con condiciones en las que pueda considerarse que la velocidad no cambia en el tiempo se denomina movimiento permanente, mientras que si la velocidad cambia sustancialmente en el tiempo se denomina movimiento variable. Atendiendo a la aceleración convectiva, el movimiento puede ser uniforme, donde la aceleración convectiva es nula, o movimiento variado, cuando la mencionada componente no es nula.
+</p>
+<p>
+  Tiene interés expresar la aceleración en función del rotacional de la velocidad, según:
+</p>
+<object type="image/svg+xml" data="img/aceleracion_02.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  El rotacional de la velocidad permite distinguir entre movimiento rotacional y movimiento irrotacional o potencial.
+</p>
+<p>
+  En el movimiento rotacional hay rotación de las partículas, lo que ocurre en las proximidades de los contornos sólidos debido a la propagación del rozamiento entre las partículas. En el movimiento irrotacional no hay rotación de las partículas. Se da en zonas suficientemente alejadas de los contornos sólidos o en los medios porosos cuando se estudia la velocidad eficaz de filtración. Recibe el nombre de movimiento potencial, debido a que el campo de velocidades implica la existencia de un campo escalar <i>&Phi;</i> tal que <b><i>u</i></b>=-&nabla;<i>&Phi;</i>. El objetivo del estudio del movimiento potencial es la obtención de <i>&Phi;</i> mediante integración y, a partir de este, obtener el campo de velocidades.
+</p>
+<p>
+  En determinadas ocasiones, como por ejemplo el caso de las turbomáquinas, el flujo se mueve en un canal guía que, a su vez, también se mueve. Se trata de movimiento relativo. La velocidad absoluta <b><i>v</i></b> resulta de la adicción de la velocidad de arrastre <b><i>u</i></b> del canal guía y de la velocidad relativa <b><i>w</i></b> del agua respecto del canal guía.
+</p>
+<h2>
+  Gasto y Ecuación de continuidad
+</h2>
+<p>
+  El volumen de agua que atraviesa una sección en la unidad de tiempo es conocido como gasto volumétrico o caudal. En una sección <i>&omega;</i>, transversal al flujo, el caudal está definido por:
+</p>
+<object type="image/svg+xml" data="img/caudal.mml">Este navegador no soporta el formato MathML</object>
+<P>
+  Atendiendo a la definición de la velocidad media, se deduce que <i>U</i> = <i>Q</i> / <i>&omega;</i>.
+</p>
+<p>
+  El principio de conservación de la materia se expresa a través de la ecuación de continuidad. En un tramo de conducción, o equivalente, la ecuación de continuidad expresa que la diferencia entre los caudales aportados menos los desaguados debe ser igual a la variación del volumen almacenado en el tramo en cuestión. Según la naturaleza del problema la ecuación de continuidad adoptará una determinada expresión.
+</p>
+<p>
+  Para un tramo de tubería con flujo permanente, delimitado por las secciones <b>1</b> y <b>2</b>, se expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Para una tubería 1 que se bifurca mediante una té en las tuberías 2 y 3, expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad02.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Para un tramo infinitesimal de tubería con movimiento variable de longitud d<i>s</i>, en el que el agua puede comprimirse y la tubería variar su diámetro interior, la ecuación de continuidad en magnitud de masa, se expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad03.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Y como d<i>s</i> no depende de <i>t</i>, finalmente se expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad04.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Tiene interés, como caso general, expresar la ecuación de continuidad para un paralelepípedo elemental con las caras paralelas a los ejes coordenados y de dimensiones d<i>x<sub>i</sub></i>. Dejando aparte los posibles manantiales y sumideros, la ecuación de continuidad se expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad05.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  La divergencia de la velocidad en un punto es un escalar, y representa el flujo en el elemento infinitesimal. Cuando el fluido es compresible, debe tenerse en cuenta la posible variación de la densidad en el tiempo, y se expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad06.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Un caso análogo es el del flujo en medios porosos subsaturados, donde el contenido de humedad &theta; ([L]<sup>3</sup>agua / [L]<sup>3</sup>medio poroso) en el mismo puede cambiar en el tiempo. La ecuación de continuidad en medios porosos subsaturados se expresa:
+</p>
+<object type="image/svg+xml" data="img/continuidad07.mml">Este navegador no soporta el formato MathML</object>
+<h2>
+  Ecuaciones de Navier-Stokes y de Euler
+</h2>
+<p>
+  En el método de Euler, el movimiento queda determinado si en cada punto del espacio se conoce la velocidad <b><i>u</i></b>, la presión <i>p</i> y la densidad <i>&rho;</i>. Por tanto, se requieren cinco ecuaciones, que son: las tres relaciones que rigen el equilibrio dinámico de cada partícula, la ecuación característica del fluido (<i>&rho;</i> = cte. en el caso de un líquido) y, por último, la ecuación de continuidad, que en el caso de una corriente líquida se corresponde con el caso en el que la divergencia de la velocidad es nula.
+</p>
+<p>
+  La ley de la viscosidad de Newton permite relacionar las tensiones tangenciales con los gradientes de las componentes de la velocidad. Surgen así las ecuaciones de Navier-Stokes, que, para un fluido incompresible y con el campo gravitatorio terrestre como única fuerza exterior, se escriben:
+</p>
+<object type="image/svg+xml" data="img/NavierStokes.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  donde &nu; es la viscosidad cinemática.
+</p>
+<p>
+  Las ecuaciones de Navier-Stokes tienen lo que los matemáticos denominan comportamiento elíptico. Dicha denominación se caracteriza por que el campo del flujo ha de resolverse simultáneamente en todo el fluido, de acuerdo con las condiciones de contorno definidas. Aún no se ha podido obtener una solución general de las mismas, por lo que es necesario resolverlas asumiendo ciertas simplificaciones.
+</p>
+<p>
+  En el caso de asumir que el fluido es ideal, es decir que tiene viscosidad nula, se obtienen las ecuaciones de Euler, que se expresan:
+</p>
+<object type="image/svg+xml" data="img/Euler.mml">Este navegador no soporta el formato MathML</object>
+<h2>
+  Ecuación de la energía. Teorema de Bernoulli
+</h2>
+<p>
+  La integración de la ecuación de Navier-Stokes a lo largo de un elemento diferencial de trayectoria  permite obtener la variación del potencial en dicho trayecto. Si se considera, por un lado, que el fluido es perfecto, la ecuación de Euler ilustra el equilibrio de la partícula fluida, y, por el otro, que el movimiento es permanente, se obtiene la ecuación de la energía o Teorema de Bernoulli, y, en magnitud de energía por unidad de peso, se escribe:
+</p>
+<object type="image/svg+xml" data="img/Bernoulli.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Y el teorema de Bernoulli se podría enunciar como sigue: la energía mecánica total por unidad de peso se conserva a lo largo de un filamento de corriente de un fluido perfecto, incompresible, en movimiento permanente y rotacional.
+</p>
+<p>
+  Quedan definidos con esta expresión los conceptos de línea geométrica (<i>z</i>), línea piezométrica (<i>p</i>/&gamma; + <i>z</i>) y sumando cinético o altura de velocidad (<i>u</i><sup>2</sup>/2<i>g</i>). La suma de los tres recibe el nombre de línea de energía, o carga o altura total H. No obstante, y en general, a cada línea o filamento de corriente le corresponderá un valor H distinto, y existirán tantas líneas de energía como líneas de corriente.
+</p>
+<p>
+  En ocasiones, el agua se mueve entre los canales guía de un objeto en movimiento, como ocurre en las turbomáquinas, en las que el agua se mueve en el interior de una rueda de álabes en rotación. Siendo u y w los módulos de las velocidades de arrastre y relativa, respectivamente, el teorema de Bernoulli en el movimiento relativo se expresa según:
+</p>
+<object type="image/svg+xml" data="img/Bernoulli_rel.mml">Este navegador no soporta el formato MathML</object>
+<h2>
+  Método unidimensional de análisis de corrientes líquidas
+</h2>
+<p>
+  Dado que toda corriente fluida está formada por infinitas líneas de corriente y, en general, en cada sección transversal cada una con distinta velocidad u y distinta carga H se hace necesario trabajar con los valores medios de ambas.
+</p>
+  En una sección transversal, el caudal <i>Q</i>, volumen que atraviesa la sección en la unidad de tiempo, está relacionado con la velocidad media <i>U</i>, a través de la sección <i>&omega;</i>, según:
+</p>
+<object type="image/svg+xml" data="img/caudal02.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  En una sección con movimiento permanente, se cumple en todo momento la ecuación de la hidrostática. El nivel piezométrico (<i>p</i>/&gamma; + <i>z</i>) se mantiene, por tanto, constante en todos los puntos de la sección.
+</p>
+<p>
+  A partir de la definición de potencia, energía que atraviesa una sección en un instante de tiempo, se deduce el valor de la energía media por unidad de peso H en una sección con movimiento uniforme y permanente. Se expresa:
+</p>
+<object type="image/svg+xml" data="img/Energia_media.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  donde &alpha; es el coeficiente de Coriolis, que expresa la diferencia entre el promedio de los sumandos cinéticos en el conjunto de la sección en relación al sumando cinético calculado a partir de la velocidad media <i>U</i>. Dicho coeficiente tiene por expresión:
+</p>
+<object type="image/svg+xml" data="img/Coriolis.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  Se deduce que en régimen laminar (ver apartado 3.2.6) dicho coeficiente vale 2, mientras que en régimen turbulento depende del grado de desarrollo de la turbulencia, pero que las observaciones y teorías apuntan a que toma valores muy próximos a 1 aunque siempre mayores que este. Teniendo en cuenta el hecho de que el sumando cinético suele ser considerablemente menor que la altura piezométrica queda justificado asumir en la práctica el valor unidad para el coeficiente &alpha; de Coriolis. Por tanto, la energía media en una sección suele escribirse:
+</p>
+<object type="image/svg+xml" data="img/Energia_media02.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  En corrientes libres, la altura de presión es aproximadamente igual que la altura de agua sobre la solera del canal. La altura de agua recibe el nombre de calado <i>y</i>. Así, la energía mecánica en una sección de una corriente libre es:
+</p>
+<object type="image/svg+xml" data="img/Energia_media03.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  donde , denominada energía específica, cuantifica la energía respecto de la solera del canal. Para una energía específica y caudal dados, se comprueba que hay dos posibles calados, el calado alto, mayor que el calado crítico, y el calado bajo, menor que el calado crítico.
+</p>
+<p>
+  El régimen crítico se corresponde con la situación que da lugar a un valor del calado en la que la energía específica es mínima. En ese caso, el calado recibe la denominación de calado crítico. En el régimen crítico se cumple que el número de Froude F es igual a la unidad.
+</p>
+<!-- <p>
+  Por otra parte, también tiene interés el estudiar el equilibrio dinámico de una porción finita de fluido. Las ecuaciones globales son el resultado de dicho estudio. En el caso de estudiar una porción finita de tubo de corriente delimitada por dos secciones, se obtiene la ecuación global de Euler. Esta se puede expresar como sigue:
+</p>
+
+(3‑25)
+donde &beta; es el coeficiente análogo al &alfa; de Coriolis, y tiene por expresión:
+
+(3‑26)
+Se deduce que el valor de este coeficiente es aún menor que el del coeficiente &alfa;, por lo que en la práctica el valor adoptado es la unidad.
+Por tanto la acción  que ejerce un canal guía fijo sobre el flujo de agua se puede determinar a partir de la expresión:
+
+(3‑27)
+donde N es el módulo de la denominada fuerza de impulsión. La dirección y sentido de dicha fuerza queda determinada a realizar el producto escalar de la expresión de arriba. El vector unitario  es normal a la sección en la que se calcula la impulsión, y tiene por sentido hacia el exterior de la masa de agua en la que se estudia el equilibrio dinámico.
+A la acción en cuestión se opone la reacción , que el conducto transmite al medio circundante. Esta reacción es la solicitación que deberá resistir el propio conducto, los anclajes previstos al efecto o el terreno circundante. -->
+<p>
+  La consideración de fluido perfecto impone límites de validez a las expresiones anteriores. No obstante, la consideración de los efectos de disipación de energía debida al rozamiento viscoso, así como los intercambios energéticos con el exterior, permiten expresar la ecuación de la energía de manera general:
+</p>
+<object type="image/svg+xml" data="img/Energia.mml">Este navegador no soporta el formato MathML</object>
+<p>
+  donde <i>h<sub>f</sub></i> recoge la transformación irreversible de energía en calor entre las secciones 1 y 2, y recibe el nombre de pérdidas de carga. &Delta;<i>H</i> recoge los intercambios con el exterior, una cantidad positiva indica que la masa de agua recibe energía entre las secciones 1 y 2, caso de existir un bombeo o elevación. Una cantidad negativa indica que la masa de agua cede energía al exterior, podría tratarse de una turbina.
+</p>
+
+</body>
+
+</html>

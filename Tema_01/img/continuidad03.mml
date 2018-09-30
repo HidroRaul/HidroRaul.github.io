@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mo stretchy="false">∂</mo>
+     <mrow>
+      <mo fence="true" stretchy="false">(</mo>
+      <mrow>
+       <mrow>
+        <mi mathvariant="normal">ρ</mi>
+        <mi>Q</mi>
+        <mi>U</mi>
+       </mrow>
+      </mrow>
+      <mo fence="true" stretchy="false">)</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mo stretchy="false">∂</mo>
+     <mi>s</mi>
+    </mrow>
+   </mfrac>
+   <mrow>
+    <mrow>
+     <mi mathvariant="italic">ds</mi>
+     <mo stretchy="false">⋅</mo>
+     <mi mathvariant="italic">dt</mi>
+    </mrow>
+    <mo stretchy="false">=</mo>
+    <mfrac>
+     <mrow>
+      <mo stretchy="false">∂</mo>
+      <mrow>
+       <mo fence="true" stretchy="false">(</mo>
+       <mrow>
+        <mrow>
+         <mi mathvariant="normal">ρ</mi>
+         <mi mathvariant="normal">ω</mi>
+         <mi mathvariant="italic">ds</mi>
+        </mrow>
+       </mrow>
+       <mo fence="true" stretchy="false">)</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mo stretchy="false">∂</mo>
+      <mi>t</mi>
+     </mrow>
+    </mfrac>
+   </mrow>
+   <mi mathvariant="italic">dt</mi>
+  </mrow>
+  <annotation encoding="StarMath 5.0">{partial (%rho Q U)} over {partial s} ds cdot dt = {partial (%rho %omega ds)} over {partial t} dt</annotation>
+ </semantics>
+</math>

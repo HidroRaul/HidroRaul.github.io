@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mo fence="true" stretchy="false">(</mo>
+    <mrow>
+     <mrow>
+      <mrow>
+       <msub>
+        <mi>T</mi>
+        <mn>11</mn>
+       </msub>
+       <mo stretchy="false">+</mo>
+       <mfrac>
+        <mrow>
+         <mo stretchy="false">∂</mo>
+         <msub>
+          <mi>T</mi>
+          <mn>11</mn>
+         </msub>
+        </mrow>
+        <mrow>
+         <mo stretchy="false">∂</mo>
+         <msub>
+          <mi>x</mi>
+          <mn>1</mn>
+         </msub>
+        </mrow>
+       </mfrac>
+      </mrow>
+      <msub>
+       <mi mathvariant="italic">dx</mi>
+       <mn>1</mn>
+      </msub>
+     </mrow>
+    </mrow>
+    <mo fence="true" stretchy="false">)</mo>
+   </mrow>
+   <msub>
+    <mi mathvariant="italic">dx</mi>
+    <mn>2</mn>
+   </msub>
+   <msub>
+    <mi mathvariant="italic">dx</mi>
+    <mn>3</mn>
+   </msub>
+  </mrow>
+  <annotation encoding="StarMath 5.0">(T_11+ {partial T_11} over {partial x_1} dx_1 ) dx_2 dx_3 </annotation>
+ </semantics>
+</math>

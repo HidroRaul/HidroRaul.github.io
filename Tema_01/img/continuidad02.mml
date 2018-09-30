@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <msub>
+    <mi>Q</mi>
+    <mn>1</mn>
+   </msub>
+   <mo stretchy="false">=</mo>
+   <mrow>
+    <msub>
+     <mi>Q</mi>
+     <mn>2</mn>
+    </msub>
+    <mo stretchy="false">+</mo>
+    <msub>
+     <mi>Q</mi>
+     <mn>3</mn>
+    </msub>
+   </mrow>
+  </mrow>
+  <annotation encoding="StarMath 5.0">Q_1 = Q_2 + Q_3</annotation>
+ </semantics>
+</math>

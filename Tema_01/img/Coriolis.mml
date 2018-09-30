@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mi mathvariant="normal">α</mi>
+    <mo stretchy="false">=</mo>
+    <mfrac>
+     <mn>1</mn>
+     <mi mathvariant="normal">ω</mi>
+    </mfrac>
+   </mrow>
+   <mrow>
+    <mrow>
+     <munder>
+      <mo stretchy="false">∫</mo>
+      <mi mathvariant="normal">ω</mi>
+     </munder>
+     <msup>
+      <mrow>
+       <mo fence="true" stretchy="true">(</mo>
+       <mrow>
+        <mfrac>
+         <mi>u</mi>
+         <mi>U</mi>
+        </mfrac>
+       </mrow>
+       <mo fence="true" stretchy="true">)</mo>
+      </mrow>
+      <mn>3</mn>
+     </msup>
+    </mrow>
+    <mo stretchy="false">⋅</mo>
+    <mi>d</mi>
+   </mrow>
+   <mi mathvariant="normal">ω</mi>
+  </mrow>
+  <annotation encoding="StarMath 5.0">%alpha = {1} over {%omega} int from{%omega} left ( {u} over {U} right )^3 cdot d %omega</annotation>
+ </semantics>
+</math>

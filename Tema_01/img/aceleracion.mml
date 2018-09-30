@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mover accent="true">
+     <mi>a</mi>
+     <mo stretchy="false">¯</mo>
+    </mover>
+    <mo stretchy="false">=</mo>
+    <mfrac>
+     <mrow>
+      <mi>d</mi>
+      <mover accent="true">
+       <mi>u</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+     </mrow>
+     <mi mathvariant="italic">dt</mi>
+    </mfrac>
+    <mo stretchy="false">=</mo>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mover accent="true">
+        <mi>u</mi>
+        <mo stretchy="false">¯</mo>
+       </mover>
+      </mrow>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mi>t</mi>
+      </mrow>
+     </mfrac>
+     <mo stretchy="false">+</mo>
+     <mrow>
+      <mover accent="true">
+       <mi>u</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">⋅</mo>
+      <mo stretchy="false">∇</mo>
+     </mrow>
+    </mrow>
+   </mrow>
+   <mover accent="true">
+    <mi>u</mi>
+    <mo stretchy="false">¯</mo>
+   </mover>
+  </mrow>
+  <annotation encoding="StarMath 5.0">bar a = {d bar u} over {dt} =  {partial bar u } over {partial t} + bar u cdot nabla bar u</annotation>
+ </semantics>
+</math>

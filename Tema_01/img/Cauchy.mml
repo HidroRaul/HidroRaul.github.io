@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mtable>
+   <mtr>
+    <mtd>
+     <mrow>
+      <mrow>
+       <mrow>
+        <mfrac>
+         <mrow>
+          <mo stretchy="false">∇</mo>
+          <mover accent="true">
+           <mover accent="true">
+            <mi>t</mi>
+            <mo stretchy="false">¯</mo>
+           </mover>
+           <mo stretchy="false">¯</mo>
+          </mover>
+         </mrow>
+         <mi mathvariant="normal">ρ</mi>
+        </mfrac>
+        <mo stretchy="false">+</mo>
+        <mover accent="true">
+         <mi>F</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+       </mrow>
+       <mo stretchy="false">=</mo>
+       <mover accent="true">
+        <mi>a</mi>
+        <mo stretchy="false">¯</mo>
+       </mover>
+      </mrow>
+      <mi>,</mi>
+     </mrow>
+    </mtd>
+   </mtr>
+   <mtr>
+    <mtd>
+     <mrow>
+      <mstyle mathvariant="sans-serif">
+       <mi mathvariant="italic">donde</mi>
+      </mstyle>
+      <mrow>
+       <mover accent="true">
+        <mover accent="true">
+         <mi>t</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+        <mo stretchy="false">¯</mo>
+       </mover>
+       <mo stretchy="false">=</mo>
+       <mrow>
+        <mo fence="true" stretchy="true">(</mo>
+        <mrow>
+         <mtable>
+          <mtr>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>11</mn>
+            </msub>
+           </mtd>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>12</mn>
+            </msub>
+           </mtd>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>13</mn>
+            </msub>
+           </mtd>
+          </mtr>
+          <mtr>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>21</mn>
+            </msub>
+           </mtd>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>22</mn>
+            </msub>
+           </mtd>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>23</mn>
+            </msub>
+           </mtd>
+          </mtr>
+          <mtr>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>31</mn>
+            </msub>
+           </mtd>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>32</mn>
+            </msub>
+           </mtd>
+           <mtd>
+            <msub>
+             <mi>T</mi>
+             <mn>33</mn>
+            </msub>
+           </mtd>
+          </mtr>
+         </mtable>
+        </mrow>
+        <mo fence="true" stretchy="true">)</mo>
+       </mrow>
+      </mrow>
+      <mstyle mathvariant="sans-serif">
+       <mi>y</mi>
+      </mstyle>
+      <mrow>
+       <mover accent="true">
+        <mi>F</mi>
+        <mo stretchy="false">¯</mo>
+       </mover>
+       <mo stretchy="false">=</mo>
+       <mrow>
+        <mrow>
+         <mo stretchy="false">−</mo>
+         <mi>g</mi>
+        </mrow>
+        <mo stretchy="false">⋅</mo>
+        <mover accent="true">
+         <mn>2</mn>
+         <mo stretchy="false">¯</mo>
+        </mover>
+       </mrow>
+      </mrow>
+     </mrow>
+    </mtd>
+   </mtr>
+  </mtable>
+  <annotation encoding="StarMath 5.0">{nabla bar bar t} over {%rho} + bar F= bar a, newline font sans {donde} bar bar t=  left( matrix{T_11 # T_12 # T_13 ## T_21 # T_22 # T_23 ## T_31 # T_32 # T_33 } right) font sans {y}  bar F=-g cdot bar 2  </annotation>
+ </semantics>
+</math>

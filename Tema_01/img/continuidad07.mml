@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mi>d</mi>
+      <mi mathvariant="normal">θ</mi>
+     </mrow>
+     <mi mathvariant="italic">dt</mi>
+    </mfrac>
+    <mo stretchy="false">+</mo>
+    <mrow>
+     <mo stretchy="false">∇</mo>
+     <mo stretchy="false">⋅</mo>
+     <mover accent="true">
+      <mi>u</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+   </mrow>
+   <mo stretchy="false">=</mo>
+   <mn>0</mn>
+  </mrow>
+  <annotation encoding="StarMath 5.0">{d %theta} over {dt}+nabla cdot bar u=0</annotation>
+ </semantics>
+</math>

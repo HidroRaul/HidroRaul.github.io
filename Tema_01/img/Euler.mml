@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+ <semantics>
+  <mrow>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mo stretchy="false">−</mo>
+      <mrow>
+       <mo stretchy="false">∇</mo>
+       <mi>p</mi>
+      </mrow>
+     </mrow>
+     <mi mathvariant="normal">ρ</mi>
+    </mfrac>
+    <mo stretchy="false">+</mo>
+    <mover accent="true">
+     <msub>
+      <mi>F</mi>
+      <mi>g</mi>
+     </msub>
+     <mo stretchy="false">¯</mo>
+    </mover>
+   </mrow>
+   <mo stretchy="false">=</mo>
+   <mover accent="true">
+    <mi>a</mi>
+    <mo stretchy="false">¯</mo>
+   </mover>
+  </mrow>
+  <annotation encoding="StarMath 5.0">-{nabla p} over {%rho} + bar F_g = bar a</annotation>
+ </semantics>
+</math>
