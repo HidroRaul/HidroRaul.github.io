@@ -181,20 +181,99 @@
 <p>
   Cuando un fluido se encuentra en reposo, o en movimiento con aceleración nula, se dice que se encuentra en equilibrio hidrostático. Por un lado, la aceleración es nula y, por el otro, las tensiones tangenciales también lo son, dado que no hay desplazamiento relativo entre partículas fluidas. Por tanto la Ec. de Cauchy ahora se escribe:
 </p>
+
 <object type="image/svg+xml" data="img/Cauchy_04.mml">
-  Este navegador no soporta el formato MathML
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mo stretchy="false">−</mo>
+       <mn>1</mn>
+      </mrow>
+      <mi mathvariant="normal">ρ</mi>
+     </mfrac>
+     <mo stretchy="false">∇</mo>
+     <mrow>
+      <mrow>
+       <mi>p</mi>
+       <mo stretchy="false">+</mo>
+       <mover accent="true">
+        <msub>
+         <mi>F</mi>
+         <mi>g</mi>
+        </msub>
+        <mo stretchy="false">¯</mo>
+       </mover>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mn>0</mn>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{-1} over {%rho}nabla p + bar F_g= 0</annotation>
+   </semantics>
+  </math>
 </object>
 <p>
   Al multiplicar escalarmente los dos miembros por d<b><i>s</i></b>, se obtiene la ecuación fundamental de hidrostática en el campo gravitatorio terrestre. Expresada como energía por unidad de masa queda:
 </p>
-<object type="image/svg+xml" data="img/general_hidrostatica.mml">Este navegador no soporta el formato MathML</object>
+
+<object type="image/svg+xml" data="img/general_hidrostatica.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mo stretchy="false">−</mo>
+       <mn>1</mn>
+      </mrow>
+      <mi mathvariant="normal">ρ</mi>
+     </mfrac>
+     <mrow>
+      <mrow>
+       <mi mathvariant="italic">dp</mi>
+       <mo stretchy="false">−</mo>
+       <mi mathvariant="italic">g·dz</mi>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mn>0</mn>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{-1} over {%rho}dp -g·dz= 0</annotation>
+   </semantics>
+  </math>
+</object>
+
 <p>
   Puesto que el campo gravitatorio es potencial, el de presión también lo es, y recibe el nombre de potencial de presión. Y dado que el potencial gravitatorio permanece constante en un plano a nivel (con cota z = cte.) el potencial de presión también es constante en dicho plano.
 </p>
 <p>
   En el caso de líquidos, y en aplicaciones en las que puedan considerarse incompresibles, &gamma; es constante. La ecuación fundamental de la hidrostática integrada, se expresa como energía por unidad de peso según:
 </p>
-<object type="image/svg+xml" data="img/hidrostatica.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/hidrostatica.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mi>H</mi>
+      <mo stretchy="false">=</mo>
+      <mrow>
+       <mfrac>
+        <mi>p</mi>
+        <mi mathvariant="normal">γ</mi>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mi>z</mi>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mi mathvariant="italic">cte</mi>
+     </mrow>
+     <mi>.</mi>
+    </mrow>
+    <annotation encoding="StarMath 5.0">H={p} over {%gamma}+z=cte.</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   El potencial mecánico total, que permanece constante, es la suma del gravitatorio y el de presión. Igual que la cota requiere un plano para establecer el nivel de referencia, la presión también lo requiere. Cuando se toma como plano de referencia la presión atmosférica, se habla de presión relativa <i>p</i>. La presión absoluta <i>p</i><sub>abs</sub> es la presión relativa más la presión atmosférica. Esta última depende de las condiciones atmosféricas y de la cota sobre el nivel del mar.
 </p>
@@ -216,25 +295,202 @@
 <p>
   La velocidad en un punto y en un instante queda definida por el cambio de posición  de la partícula que se encontraba en dicho punto en el intervalo infinitesimal d<i>t</i>. Es decir:
 </p>
-<object type="image/svg+xml" data="img/velocidad.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/velocidad.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mover accent="true">
+      <mi>u</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+     <mo stretchy="false">=</mo>
+     <mfrac>
+      <mrow>
+       <mi>d</mi>
+       <mover accent="true">
+        <mi>r</mi>
+        <mo stretchy="false">¯</mo>
+       </mover>
+      </mrow>
+      <mi mathvariant="italic">dt</mi>
+     </mfrac>
+    </mrow>
+    <annotation encoding="StarMath 5.0">bar u ={d bar r} over {dt}</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   El campo de velocidades de una corriente fluida, en un instante dado, queda representado por los vectores velocidad de las partículas. Una simplificación para mejorar esta representación consiste en representar un conjunto de líneas de manera que los vectores velocidad en los puntos de las líneas sean tangentes a las mismas. Dichas líneas son conocidas como líneas de corriente y, por definición, no se cortan. Se llama superficie de corriente a las líneas de corriente que en un instante dado se apoyan en una línea continua. Por definición dicha superficie no es atravesada por ninguna línea de corriente y, por tanto, no hay flujo a través de ella. Cuando la línea sobre la que se apoyan las líneas de corriente es cerrada se habla de tubo de corriente, y al hacerlo coincidir con el contorno físico de las corrientes se constituye en el elemento de análisis de porciones finitas de fluido. El tubo de corriente de sección transversal infinitesimal se denomina filamento de corriente, y es el elemento básico para analizar el flujo de las partículas en movimiento.
 </p>
 <p>
   La velocidad depende del espacio y del tiempo, por tanto:
 </p>
-<object type="image/svg+xml" data="img/var_velocidad.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/var_velocidad.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mi>d</mi>
+     <mrow>
+      <mover accent="true">
+       <mi>u</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">=</mo>
+      <mi mathvariant="italic">dt</mi>
+     </mrow>
+     <mrow>
+      <mfrac>
+       <mrow>
+        <mo stretchy="false">∂</mo>
+        <mover accent="true">
+         <mi>u</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+       </mrow>
+       <mrow>
+        <mo stretchy="false">∂</mo>
+        <mi>t</mi>
+       </mrow>
+      </mfrac>
+      <mo stretchy="false">+</mo>
+      <mi>d</mi>
+     </mrow>
+     <mrow>
+      <mover accent="true">
+       <mi>r</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">⋅</mo>
+      <mo stretchy="false">∇</mo>
+     </mrow>
+     <mover accent="true">
+      <mi>u</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+    <annotation encoding="StarMath 5.0">d bar u = dt {partial bar u } over {partial t}+d bar r cdot nabla bar u</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Por tanto, la variación de la velocidad en el tiempo, es decir, la aceleración, queda:
 </p>
-<object type="image/svg+xml" data="img/aceleracion.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/aceleracion.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mover accent="true">
+       <mi>a</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">=</mo>
+      <mfrac>
+       <mrow>
+        <mi>d</mi>
+        <mover accent="true">
+         <mi>u</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+       </mrow>
+       <mi mathvariant="italic">dt</mi>
+      </mfrac>
+      <mo stretchy="false">=</mo>
+      <mrow>
+       <mfrac>
+        <mrow>
+         <mo stretchy="false">∂</mo>
+         <mover accent="true">
+          <mi>u</mi>
+          <mo stretchy="false">¯</mo>
+         </mover>
+        </mrow>
+        <mrow>
+         <mo stretchy="false">∂</mo>
+         <mi>t</mi>
+        </mrow>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mrow>
+        <mover accent="true">
+         <mi>u</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+        <mo stretchy="false">⋅</mo>
+        <mo stretchy="false">∇</mo>
+       </mrow>
+      </mrow>
+     </mrow>
+     <mover accent="true">
+      <mi>u</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+    <annotation encoding="StarMath 5.0">bar a = {d bar u} over {dt} =  {partial bar u } over {partial t} + bar u cdot nabla bar u</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   La primera componente recibe el nombre de aceleración local y la segunda de aceleración convectiva. La aceleración local expresa la variación de la velocidad debido solamente al tiempo. Aquel movimiento con condiciones en las que pueda considerarse que la velocidad no cambia en el tiempo se denomina movimiento permanente, mientras que si la velocidad cambia sustancialmente en el tiempo se denomina movimiento variable. Atendiendo a la aceleración convectiva, el movimiento puede ser uniforme, donde la aceleración convectiva es nula, o movimiento variado, cuando la mencionada componente no es nula.
 </p>
 <p>
   Tiene interés expresar la aceleración en función del rotacional de la velocidad, según:
 </p>
-<object type="image/svg+xml" data="img/aceleracion_02.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/aceleracion_02.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mover accent="true">
+       <mi>a</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">=</mo>
+      <mrow>
+       <mfrac>
+        <mrow>
+         <mo stretchy="false">∂</mo>
+         <mover accent="true">
+          <mi>u</mi>
+          <mo stretchy="false">¯</mo>
+         </mover>
+        </mrow>
+        <mrow>
+         <mo stretchy="false">∂</mo>
+         <mi>t</mi>
+        </mrow>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mfrac>
+        <mrow>
+         <mo stretchy="false">∇</mo>
+         <msup>
+          <mi>u</mi>
+          <mn>2</mn>
+         </msup>
+        </mrow>
+        <mn>2</mn>
+       </mfrac>
+       <mo stretchy="false">−</mo>
+       <mrow>
+        <mover accent="true">
+         <mi>u</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+        <mo stretchy="false">⊗</mo>
+        <mi mathvariant="italic">rot</mi>
+       </mrow>
+      </mrow>
+     </mrow>
+     <mover accent="true">
+      <mi>u</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+    <annotation encoding="StarMath 5.0">bar a =   {partial bar u } over {partial t} + {nabla u^{2}} over 2-bar u otimes rot bar u </annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   El rotacional de la velocidad permite distinguir entre movimiento rotacional y movimiento irrotacional o potencial.
 </p>
@@ -250,7 +506,37 @@
 <p>
   El volumen de agua que atraviesa una sección en la unidad de tiempo es conocido como gasto volumétrico o caudal. En una sección <i>&omega;</i>, transversal al flujo, el caudal está definido por:
 </p>
-<object type="image/svg+xml" data="img/caudal.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/caudal.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mi>Q</mi>
+      <mo stretchy="false">=</mo>
+      <mrow>
+       <mrow>
+        <munder>
+         <mo stretchy="false">∫</mo>
+         <mi mathvariant="normal">ω</mi>
+        </munder>
+        <mover accent="true">
+         <mi>u</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+       </mrow>
+       <mo stretchy="false">⋅</mo>
+       <mi>d</mi>
+      </mrow>
+     </mrow>
+     <mover accent="true">
+      <mi mathvariant="normal">ω</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+    <annotation encoding="StarMath 5.0">Q = int from{%omega} bar u cdot d bar %omega</annotation>
+   </semantics>
+  </math>
+</object>
 <P>
   Atendiendo a la definición de la velocidad media, se deduce que <i>U</i> = <i>Q</i> / <i>&omega;</i>.
 </p>
@@ -260,31 +546,257 @@
 <p>
   Para un tramo de tubería con flujo permanente, delimitado por las secciones <b>1</b> y <b>2</b>, se expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <msub>
+      <mi>Q</mi>
+      <mn>1</mn>
+     </msub>
+     <mo stretchy="false">=</mo>
+     <msub>
+      <mi>Q</mi>
+      <mn>2</mn>
+     </msub>
+    </mrow>
+    <annotation encoding="StarMath 5.0">Q_1 = Q_2</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Para una tubería 1 que se bifurca mediante una té en las tuberías 2 y 3, expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad02.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad02.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <msub>
+      <mi>Q</mi>
+      <mn>1</mn>
+     </msub>
+     <mo stretchy="false">=</mo>
+     <mrow>
+      <msub>
+       <mi>Q</mi>
+       <mn>2</mn>
+      </msub>
+      <mo stretchy="false">+</mo>
+      <msub>
+       <mi>Q</mi>
+       <mn>3</mn>
+      </msub>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">Q_1 = Q_2 + Q_3</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Para un tramo infinitesimal de tubería con movimiento variable de longitud d<i>s</i>, en el que el agua puede comprimirse y la tubería variar su diámetro interior, la ecuación de continuidad en magnitud de masa, se expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad03.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad03.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mrow>
+        <mo fence="true" stretchy="false">(</mo>
+        <mrow>
+         <mrow>
+          <mi mathvariant="normal">ρ</mi>
+          <mi>Q</mi>
+          <mi>U</mi>
+         </mrow>
+        </mrow>
+        <mo fence="true" stretchy="false">)</mo>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mi>s</mi>
+      </mrow>
+     </mfrac>
+     <mrow>
+      <mrow>
+       <mi mathvariant="italic">ds</mi>
+       <mo stretchy="false">⋅</mo>
+       <mi mathvariant="italic">dt</mi>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mfrac>
+       <mrow>
+        <mo stretchy="false">∂</mo>
+        <mrow>
+         <mo fence="true" stretchy="false">(</mo>
+         <mrow>
+          <mrow>
+           <mi mathvariant="normal">ρ</mi>
+           <mi mathvariant="normal">ω</mi>
+           <mi mathvariant="italic">ds</mi>
+          </mrow>
+         </mrow>
+         <mo fence="true" stretchy="false">)</mo>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mo stretchy="false">∂</mo>
+        <mi>t</mi>
+       </mrow>
+      </mfrac>
+     </mrow>
+     <mi mathvariant="italic">dt</mi>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{partial (%rho Q U)} over {partial s} ds cdot dt = {partial (%rho %omega ds)} over {partial t} dt</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Y como d<i>s</i> no depende de <i>t</i>, finalmente se expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad04.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad04.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mrow>
+        <mo fence="true" stretchy="false">(</mo>
+        <mrow>
+         <mrow>
+          <mi mathvariant="normal">ρ</mi>
+          <mi>Q</mi>
+          <mi>U</mi>
+         </mrow>
+        </mrow>
+        <mo fence="true" stretchy="false">)</mo>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mi>s</mi>
+      </mrow>
+     </mfrac>
+     <mo stretchy="false">=</mo>
+     <mfrac>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mrow>
+        <mo fence="true" stretchy="false">(</mo>
+        <mrow>
+         <mrow>
+          <mi mathvariant="normal">ρ</mi>
+          <mi mathvariant="normal">ω</mi>
+         </mrow>
+        </mrow>
+        <mo fence="true" stretchy="false">)</mo>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mo stretchy="false">∂</mo>
+       <mi>t</mi>
+      </mrow>
+     </mfrac>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{partial (%rho Q U)} over {partial s} = {partial (%rho %omega)} over {partial t}</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Tiene interés, como caso general, expresar la ecuación de continuidad para un paralelepípedo elemental con las caras paralelas a los ejes coordenados y de dimensiones d<i>x<sub>i</sub></i>. Dejando aparte los posibles manantiales y sumideros, la ecuación de continuidad se expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad05.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad05.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mo stretchy="false">∇</mo>
+      <mo stretchy="false">⋅</mo>
+      <mover accent="true">
+       <mi>u</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+     </mrow>
+     <mo stretchy="false">=</mo>
+     <mn>0</mn>
+    </mrow>
+    <annotation encoding="StarMath 5.0">nabla cdot bar u=0</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   La divergencia de la velocidad en un punto es un escalar, y representa el flujo en el elemento infinitesimal. Cuando el fluido es compresible, debe tenerse en cuenta la posible variación de la densidad en el tiempo, y se expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad06.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad06.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mfrac>
+      <mn>1</mn>
+      <mi mathvariant="normal">ρ</mi>
+     </mfrac>
+     <mrow>
+      <mrow>
+       <mfrac>
+        <mrow>
+         <mi>d</mi>
+         <mi mathvariant="normal">ρ</mi>
+        </mrow>
+        <mi mathvariant="italic">dt</mi>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mrow>
+        <mo stretchy="false">∇</mo>
+        <mo stretchy="false">⋅</mo>
+        <mover accent="true">
+         <mi>u</mi>
+         <mo stretchy="false">¯</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mn>0</mn>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{1} over {%rho} {d %rho} over {dt}+nabla cdot bar u=0</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Un caso análogo es el del flujo en medios porosos subsaturados, donde el contenido de humedad &theta; ([L]<sup>3</sup>agua / [L]<sup>3</sup>medio poroso) en el mismo puede cambiar en el tiempo. La ecuación de continuidad en medios porosos subsaturados se expresa:
 </p>
-<object type="image/svg+xml" data="img/continuidad07.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/continuidad07.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mfrac>
+       <mrow>
+        <mi>d</mi>
+        <mi mathvariant="normal">θ</mi>
+       </mrow>
+       <mi mathvariant="italic">dt</mi>
+      </mfrac>
+      <mo stretchy="false">+</mo>
+      <mrow>
+       <mo stretchy="false">∇</mo>
+       <mo stretchy="false">⋅</mo>
+       <mover accent="true">
+        <mi>u</mi>
+        <mo stretchy="false">¯</mo>
+       </mover>
+      </mrow>
+     </mrow>
+     <mo stretchy="false">=</mo>
+     <mn>0</mn>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{d %theta} over {dt}+nabla cdot bar u=0</annotation>
+   </semantics>
+  </math>
+</object>
 <h2>
   Ecuaciones de Navier-Stokes y de Euler
 </h2>
@@ -294,7 +806,52 @@
 <p>
   La ley de la viscosidad de Newton permite relacionar las tensiones tangenciales con los gradientes de las componentes de la velocidad. Surgen así las ecuaciones de Navier-Stokes, que, para un fluido incompresible y con el campo gravitatorio terrestre como única fuerza exterior, se escriben:
 </p>
-<object type="image/svg+xml" data="img/NavierStokes.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/NavierStokes.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mfrac>
+       <mrow>
+        <mo stretchy="false">−</mo>
+        <mrow>
+         <mo stretchy="false">∇</mo>
+         <mi>p</mi>
+        </mrow>
+       </mrow>
+       <mi mathvariant="normal">ρ</mi>
+      </mfrac>
+      <mo stretchy="false">+</mo>
+      <mover accent="true">
+       <msub>
+        <mi>F</mi>
+        <mi>g</mi>
+       </msub>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">+</mo>
+      <mi>v</mi>
+     </mrow>
+     <msup>
+      <mo stretchy="false">∇</mo>
+      <mn>2</mn>
+     </msup>
+     <mrow>
+      <mover accent="true">
+       <mi>u</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">=</mo>
+      <mover accent="true">
+       <mi>a</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">-{nabla p} over {%rho} + bar F_g + v nabla^2 bar u = bar a</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   donde &nu; es la viscosidad cinemática.
 </p>
@@ -304,14 +861,79 @@
 <p>
   En el caso de asumir que el fluido es ideal, es decir que tiene viscosidad nula, se obtienen las ecuaciones de Euler, que se expresan:
 </p>
-<object type="image/svg+xml" data="img/Euler.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Euler.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mfrac>
+       <mrow>
+        <mo stretchy="false">−</mo>
+        <mrow>
+         <mo stretchy="false">∇</mo>
+         <mi>p</mi>
+        </mrow>
+       </mrow>
+       <mi mathvariant="normal">ρ</mi>
+      </mfrac>
+      <mo stretchy="false">+</mo>
+      <mover accent="true">
+       <msub>
+        <mi>F</mi>
+        <mi>g</mi>
+       </msub>
+       <mo stretchy="false">¯</mo>
+      </mover>
+     </mrow>
+     <mo stretchy="false">=</mo>
+     <mover accent="true">
+      <mi>a</mi>
+      <mo stretchy="false">¯</mo>
+     </mover>
+    </mrow>
+    <annotation encoding="StarMath 5.0">-{nabla p} over {%rho} + bar F_g = bar a</annotation>
+   </semantics>
+  </math>
+</object>
 <h2>
   Ecuación de la energía. Teorema de Bernoulli
 </h2>
 <p>
   La integración de la ecuación de Navier-Stokes a lo largo de un elemento diferencial de trayectoria  permite obtener la variación del potencial en dicho trayecto. Si se considera, por un lado, que el fluido es perfecto, la ecuación de Euler ilustra el equilibrio de la partícula fluida, y, por el otro, que el movimiento es permanente, se obtiene la ecuación de la energía o Teorema de Bernoulli, y, en magnitud de energía por unidad de peso, se escribe:
 </p>
-<object type="image/svg+xml" data="img/Bernoulli.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Bernoulli.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mrow>
+       <mfrac>
+        <mi>p</mi>
+        <mi mathvariant="normal">γ</mi>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mi>z</mi>
+       <mo stretchy="false">+</mo>
+       <mfrac>
+        <msup>
+         <mi>u</mi>
+         <mn>2</mn>
+        </msup>
+        <mrow>
+         <mn>2</mn>
+         <mi>g</mi>
+        </mrow>
+       </mfrac>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mi mathvariant="italic">cte</mi>
+     </mrow>
+     <mi>.</mi>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{p} over {%gamma} + z + {u^2} over {2g} = cte.</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Y el teorema de Bernoulli se podría enunciar como sigue: la energía mecánica total por unidad de peso se conserva a lo largo de un filamento de corriente de un fluido perfecto, incompresible, en movimiento permanente y rotacional.
 </p>
@@ -321,7 +943,50 @@
 <p>
   En ocasiones, el agua se mueve entre los canales guía de un objeto en movimiento, como ocurre en las turbomáquinas, en las que el agua se mueve en el interior de una rueda de álabes en rotación. Siendo u y w los módulos de las velocidades de arrastre y relativa, respectivamente, el teorema de Bernoulli en el movimiento relativo se expresa según:
 </p>
-<object type="image/svg+xml" data="img/Bernoulli_rel.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Bernoulli_rel.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mrow>
+       <mfrac>
+        <mi>p</mi>
+        <mi mathvariant="normal">γ</mi>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mi>z</mi>
+       <mo stretchy="false">+</mo>
+       <mfrac>
+        <msup>
+         <mi>w</mi>
+         <mn>2</mn>
+        </msup>
+        <mrow>
+         <mn>2</mn>
+         <mi>g</mi>
+        </mrow>
+       </mfrac>
+       <mo stretchy="false">−</mo>
+       <mfrac>
+        <msup>
+         <mi>u</mi>
+         <mn>2</mn>
+        </msup>
+        <mrow>
+         <mn>2</mn>
+         <mi>g</mi>
+        </mrow>
+       </mfrac>
+      </mrow>
+      <mo stretchy="false">=</mo>
+      <mi mathvariant="italic">cte</mi>
+     </mrow>
+     <mi>.</mi>
+    </mrow>
+    <annotation encoding="StarMath 5.0">{p} over {%gamma} + z +{w^2} over {2g} - {u^2} over {2g} = cte.</annotation>
+   </semantics>
+  </math>
+</object>
 <h2>
   Método unidimensional de análisis de corrientes líquidas
 </h2>
@@ -330,26 +995,203 @@
 </p>
   En una sección transversal, el caudal <i>Q</i>, volumen que atraviesa la sección en la unidad de tiempo, está relacionado con la velocidad media <i>U</i>, a través de la sección <i>&omega;</i>, según:
 </p>
-<object type="image/svg+xml" data="img/caudal02.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/caudal02.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mi>U</mi>
+      <mo stretchy="false">=</mo>
+      <mfrac>
+       <mn>1</mn>
+       <mi mathvariant="normal">ω</mi>
+      </mfrac>
+     </mrow>
+     <mrow>
+      <mrow>
+       <munder>
+        <mo stretchy="false">∫</mo>
+        <mi mathvariant="normal">ω</mi>
+       </munder>
+       <mover accent="true">
+        <mi>u</mi>
+        <mo stretchy="false">¯</mo>
+       </mover>
+      </mrow>
+      <mo stretchy="false">⋅</mo>
+      <mi>d</mi>
+     </mrow>
+     <mrow>
+      <mover accent="true">
+       <mi mathvariant="normal">ω</mi>
+       <mo stretchy="false">¯</mo>
+      </mover>
+      <mo stretchy="false">=</mo>
+      <mfrac>
+       <mi>Q</mi>
+       <mi mathvariant="normal">ω</mi>
+      </mfrac>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">U = {1} over {%omega} int from{%omega} bar u cdot d bar %omega={Q}over{%omega}</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   En una sección con movimiento permanente, se cumple en todo momento la ecuación de la hidrostática. El nivel piezométrico (<i>p</i>/&gamma; + <i>z</i>) se mantiene, por tanto, constante en todos los puntos de la sección.
 </p>
 <p>
   A partir de la definición de potencia, energía que atraviesa una sección en un instante de tiempo, se deduce el valor de la energía media por unidad de peso H en una sección con movimiento uniforme y permanente. Se expresa:
 </p>
-<object type="image/svg+xml" data="img/Energia_media.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Energia_media.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mi>H</mi>
+      <mo stretchy="false">=</mo>
+      <mrow>
+       <mfrac>
+        <mi>p</mi>
+        <mi mathvariant="normal">γ</mi>
+       </mfrac>
+       <mo stretchy="false">+</mo>
+       <mi>z</mi>
+       <mo stretchy="false">+</mo>
+       <mi mathvariant="normal">α</mi>
+      </mrow>
+     </mrow>
+     <mfrac>
+      <msup>
+       <mi>U</mi>
+       <mn>2</mn>
+      </msup>
+      <mrow>
+       <mn>2</mn>
+       <mi>g</mi>
+      </mrow>
+     </mfrac>
+    </mrow>
+    <annotation encoding="StarMath 5.0">H={p} over {%gamma} + z + %alpha {U^2} over {2g}</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   donde &alpha; es el coeficiente de Coriolis, que expresa la diferencia entre el promedio de los sumandos cinéticos en el conjunto de la sección en relación al sumando cinético calculado a partir de la velocidad media <i>U</i>. Dicho coeficiente tiene por expresión:
 </p>
-<object type="image/svg+xml" data="img/Coriolis.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Coriolis.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <mi mathvariant="normal">α</mi>
+      <mo stretchy="false">=</mo>
+      <mfrac>
+       <mn>1</mn>
+       <mi mathvariant="normal">ω</mi>
+      </mfrac>
+     </mrow>
+     <mrow>
+      <mrow>
+       <munder>
+        <mo stretchy="false">∫</mo>
+        <mi mathvariant="normal">ω</mi>
+       </munder>
+       <msup>
+        <mrow>
+         <mo fence="true" stretchy="true">(</mo>
+         <mrow>
+          <mfrac>
+           <mi>u</mi>
+           <mi>U</mi>
+          </mfrac>
+         </mrow>
+         <mo fence="true" stretchy="true">)</mo>
+        </mrow>
+        <mn>3</mn>
+       </msup>
+      </mrow>
+      <mo stretchy="false">⋅</mo>
+      <mi>d</mi>
+     </mrow>
+     <mi mathvariant="normal">ω</mi>
+    </mrow>
+    <annotation encoding="StarMath 5.0">%alpha = {1} over {%omega} int from{%omega} left ( {u} over {U} right )^3 cdot d %omega</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   Se deduce que en régimen laminar (ver apartado 3.2.6) dicho coeficiente vale 2, mientras que en régimen turbulento depende del grado de desarrollo de la turbulencia, pero que las observaciones y teorías apuntan a que toma valores muy próximos a 1 aunque siempre mayores que este. Teniendo en cuenta el hecho de que el sumando cinético suele ser considerablemente menor que la altura piezométrica queda justificado asumir en la práctica el valor unidad para el coeficiente &alpha; de Coriolis. Por tanto, la energía media en una sección suele escribirse:
 </p>
-<object type="image/svg+xml" data="img/Energia_media02.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Energia_media02.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mi>H</mi>
+     <mo stretchy="false">=</mo>
+     <mrow>
+      <mfrac>
+       <mi>p</mi>
+       <mi mathvariant="normal">γ</mi>
+      </mfrac>
+      <mo stretchy="false">+</mo>
+      <mi>z</mi>
+      <mo stretchy="false">+</mo>
+      <mfrac>
+       <msup>
+        <mi>U</mi>
+        <mn>2</mn>
+       </msup>
+       <mrow>
+        <mn>2</mn>
+        <mi>g</mi>
+       </mrow>
+      </mfrac>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">H={p} over {%gamma} + z + {U^2} over {2g}</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   En corrientes libres, la altura de presión es aproximadamente igual que la altura de agua sobre la solera del canal. La altura de agua recibe el nombre de calado <i>y</i>. Así, la energía mecánica en una sección de una corriente libre es:
 </p>
-<object type="image/svg+xml" data="img/Energia_media03.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Energia_media03.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mi>H</mi>
+     <mo stretchy="false">=</mo>
+     <mrow>
+      <mi>z</mi>
+      <mo stretchy="false">+</mo>
+      <mi>y</mi>
+      <mo stretchy="false">+</mo>
+      <mfrac>
+       <msup>
+        <mi>U</mi>
+        <mn>2</mn>
+       </msup>
+       <mrow>
+        <mn>2</mn>
+        <mi>g</mi>
+       </mrow>
+      </mfrac>
+     </mrow>
+     <mo stretchy="false">=</mo>
+     <mrow>
+      <mi>z</mi>
+      <mo stretchy="false">+</mo>
+      <msub>
+       <mi>H</mi>
+       <mn>0</mn>
+      </msub>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">H=z+y + {U^2} over {2g}=z+H_0</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   donde , denominada energía específica, cuantifica la energía respecto de la solera del canal. Para una energía específica y caudal dados, se comprueba que hay dos posibles calados, el calado alto, mayor que el calado crítico, y el calado bajo, menor que el calado crítico.
 </p>
@@ -373,7 +1215,38 @@ A la acción en cuestión se opone la reacción , que el conducto transmite al m
 <p>
   La consideración de fluido perfecto impone límites de validez a las expresiones anteriores. No obstante, la consideración de los efectos de disipación de energía debida al rozamiento viscoso, así como los intercambios energéticos con el exterior, permiten expresar la ecuación de la energía de manera general:
 </p>
-<object type="image/svg+xml" data="img/Energia.mml">Este navegador no soporta el formato MathML</object>
+<object type="image/svg+xml" data="img/Energia.mml">
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+   <semantics>
+    <mrow>
+     <mrow>
+      <msub>
+       <mi>H</mi>
+       <mn>1</mn>
+      </msub>
+      <mo stretchy="false">±</mo>
+      <mi mathvariant="normal">Δ</mi>
+     </mrow>
+     <mrow>
+      <mi>H</mi>
+      <mo stretchy="false">=</mo>
+      <mrow>
+       <msub>
+        <mi>H</mi>
+        <mn>2</mn>
+       </msub>
+       <mo stretchy="false">+</mo>
+       <msub>
+        <mi>h</mi>
+        <mi>f</mi>
+       </msub>
+      </mrow>
+     </mrow>
+    </mrow>
+    <annotation encoding="StarMath 5.0">H_1 +- %DELTA H=H_2+h_f</annotation>
+   </semantics>
+  </math>
+</object>
 <p>
   donde <i>h<sub>f</sub></i> recoge la transformación irreversible de energía en calor entre las secciones 1 y 2, y recibe el nombre de pérdidas de carga. &Delta;<i>H</i> recoge los intercambios con el exterior, una cantidad positiva indica que la masa de agua recibe energía entre las secciones 1 y 2, caso de existir un bombeo o elevación. Una cantidad negativa indica que la masa de agua cede energía al exterior, podría tratarse de una turbina.
 </p>
