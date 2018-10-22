@@ -1,0 +1,28 @@
+#contenedor_foto{
+  position: relative;
+}
+
+#contenedor_mapa{
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#foto{
+  position: relative;
+}
+
+#mapa{
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+#mapa:hover{
+  opacity: 0.6;
+}
+
+#mapa:active{
+  opacity:0;
+}
